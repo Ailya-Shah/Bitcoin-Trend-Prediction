@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Trained model artifacts (regenerable, often large)
+models/*.pt
+models/*.h5
+models/*.pkl
+models/*.joblib
+
+# Keep data/ and outputs/ tracked so the repo is self-contained for recruiters.
+# If outputs get large, uncomment the next line and keep only outputs/reports/:
+# outputs/*/figures/
+
+# Secrets (none needed for Binance public data, but just in case)
+.env

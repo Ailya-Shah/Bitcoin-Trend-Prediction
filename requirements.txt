@@ -1,0 +1,35 @@
+# ============================================================
+#  Bitcoin Trend Prediction — dependencies
+#  Install the core now; uncomment later sections as you reach them.
+# ============================================================
+
+# ---- Core (needed everywhere) ----
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+seaborn>=0.13
+
+# ---- Statistics layer (notebooks 03–04, full rigor) ----
+scipy>=1.11
+statsmodels>=0.14          # ADF, ACF/PACF, ARMA, Ljung-Box
+arch>=7.0                  # GARCH / GJR-GARCH / EGARCH family
+
+# ---- Classical ML (notebook 06) ----
+scikit-learn>=1.4
+xgboost>=2.0
+
+# ---- Data acquisition (scripts/) ----
+requests>=2.31
+
+# ---- Notebook pipeline runner (run_all.py) ----
+jupyter>=1.0
+nbformat>=5.9
+nbconvert>=7.10
+ipykernel>=6.29
+
+# ---- Deep learning (notebook 07) — install when you get there ----
+# Pick ONE framework.
+# TensorFlow/Keras — gentler on-ramp for your first LSTM/GRU:
+# tensorflow>=2.16
+# ...or PyTorch — industry standard, more control:
+# torch>=2.2
