@@ -1,6 +1,7 @@
 # ============================================================
-#  Bitcoin Trend Prediction — dependencies
-#  Install the core now; uncomment later sections as you reach them.
+#  Bitcoin Trend Prediction — Python dependencies
+#  (The dashboard's JS dependencies live in frontend/package.json,
+#   installed separately with `npm install`.)
 # ============================================================
 
 # ---- Core (needed everywhere) ----
@@ -9,27 +10,24 @@ numpy>=1.26
 matplotlib>=3.8
 seaborn>=0.13
 
-# ---- Statistics layer (notebooks 03–04, full rigor) ----
+# ---- Statistics layer (notebooks 02–04, full rigor) ----
 scipy>=1.11
-statsmodels>=0.14          # ADF, ACF/PACF, ARMA, Ljung-Box
+statsmodels>=0.14          # ADF/KPSS, ACF/PACF, ARMA, Ljung-Box, ANOVA, OLS
 arch>=7.0                  # GARCH / GJR-GARCH / EGARCH family
 
-# ---- Classical ML (notebook 06) ----
-scikit-learn>=1.4
+# ---- Classical ML (notebooks 06 & 09) ----
+scikit-learn>=1.4          # models, scaling, metrics, calibration
 xgboost>=2.0
 
+# ---- Deep learning (notebook 07) ----
+tensorflow-cpu>=2.16       # Keras LSTM. Lighter CPU build (what you installed).
+                           # Alternatives: `tensorflow` (full) or `torch` (PyTorch).
+
 # ---- Data acquisition (scripts/) ----
-requests>=2.31
+requests>=2.31             # Binance price + Blockchain.com on-chain fetchers
 
 # ---- Notebook pipeline runner (run_all.py) ----
 jupyter>=1.0
 nbformat>=5.9
 nbconvert>=7.10
 ipykernel>=6.29
-
-# ---- Deep learning (notebook 07) — install when you get there ----
-# Pick ONE framework.
-# TensorFlow/Keras — gentler on-ramp for your first LSTM/GRU:
-# tensorflow>=2.16
-# ...or PyTorch — industry standard, more control:
-# torch>=2.2
