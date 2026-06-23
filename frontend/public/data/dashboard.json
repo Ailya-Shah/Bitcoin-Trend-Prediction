@@ -4904,7 +4904,7 @@
       "AIC": 20797.48,
       "BIC": 20829.22,
       "persistence": 1.0,
-      "half_life_days": 48769038479.91
+      "half_life_days": 124781443981.05
     },
     {
       "model": "GJR-GARCH(1,1)",
@@ -4912,7 +4912,7 @@
       "AIC": 20798.45,
       "BIC": 20836.53,
       "persistence": 1.0,
-      "half_life_days": null
+      "half_life_days": 395547058297.0
     },
     {
       "model": "ARCH(1)",
@@ -4938,8 +4938,8 @@
     },
     {
       "model": "XGBoost",
-      "accuracy": 0.5008,
-      "auc": 0.5092,
+      "accuracy": 0.5024,
+      "auc": 0.515,
       "kind": "classical"
     },
     {
@@ -4972,1456 +4972,1456 @@
       "date": "2024-10-01",
       "Buy & Hold": 0.9594,
       "RandomForest": 0.9296,
-      "XGBoost": 0.9575,
+      "XGBoost": 0.9212,
       "LSTM": 0.9594
     },
     {
       "date": "2024-10-04",
       "Buy & Hold": 0.9817,
       "RandomForest": 0.9512,
-      "XGBoost": 0.9798,
+      "XGBoost": 0.9426,
       "LSTM": 0.9601
     },
     {
       "date": "2024-10-07",
       "Buy & Hold": 0.9833,
       "RandomForest": 0.9528,
-      "XGBoost": 0.9814,
+      "XGBoost": 0.9442,
       "LSTM": 0.9601
     },
     {
       "date": "2024-10-10",
       "Buy & Hold": 0.9893,
       "RandomForest": 0.9586,
-      "XGBoost": 1.0102,
+      "XGBoost": 0.9719,
       "LSTM": 0.9601
     },
     {
       "date": "2024-10-13",
       "Buy & Hold": 1.0454,
       "RandomForest": 1.0129,
-      "XGBoost": 1.0145,
+      "XGBoost": 0.976,
       "LSTM": 0.9601
     },
     {
       "date": "2024-10-16",
       "Buy & Hold": 1.0665,
       "RandomForest": 1.0335,
-      "XGBoost": 1.036,
+      "XGBoost": 0.9967,
       "LSTM": 0.9641
     },
     {
       "date": "2024-10-19",
       "Buy & Hold": 1.092,
       "RandomForest": 1.0581,
-      "XGBoost": 1.036,
+      "XGBoost": 0.994,
       "LSTM": 0.9871
     },
     {
       "date": "2024-10-22",
       "Buy & Hold": 1.0546,
       "RandomForest": 1.0219,
-      "XGBoost": 1.0241,
+      "XGBoost": 0.9826,
       "LSTM": 0.9533
     },
     {
       "date": "2024-10-25",
       "Buy & Hold": 1.0613,
       "RandomForest": 1.0284,
-      "XGBoost": 1.0306,
+      "XGBoost": 0.9888,
       "LSTM": 0.9594
     },
     {
       "date": "2024-10-28",
       "Buy & Hold": 1.1506,
       "RandomForest": 1.1149,
-      "XGBoost": 1.0841,
+      "XGBoost": 1.072,
       "LSTM": 1.0401
     },
     {
       "date": "2024-10-31",
       "Buy & Hold": 1.0994,
       "RandomForest": 1.0652,
-      "XGBoost": 1.0358,
+      "XGBoost": 1.0242,
       "LSTM": 0.9938
     },
     {
       "date": "2024-11-03",
       "Buy & Hold": 1.0733,
       "RandomForest": 1.04,
-      "XGBoost": 1.033,
+      "XGBoost": 1.0067,
       "LSTM": 0.9702
     },
     {
       "date": "2024-11-06",
       "Buy & Hold": 1.2,
       "RandomForest": 1.1628,
-      "XGBoost": 1.1482,
+      "XGBoost": 1.1201,
       "LSTM": 0.9693
     },
     {
       "date": "2024-11-09",
       "Buy & Hold": 1.2714,
       "RandomForest": 1.2319,
-      "XGBoost": 1.1558,
+      "XGBoost": 1.1275,
       "LSTM": 1.0149
     },
     {
       "date": "2024-11-12",
       "Buy & Hold": 1.4296,
       "RandomForest": 1.3853,
-      "XGBoost": 1.1558,
+      "XGBoost": 1.1275,
       "LSTM": 1.1413
     },
     {
       "date": "2024-11-15",
       "Buy & Hold": 1.433,
       "RandomForest": 1.3885,
-      "XGBoost": 1.1558,
+      "XGBoost": 1.0873,
       "LSTM": 1.1016
     },
     {
       "date": "2024-11-18",
       "Buy & Hold": 1.4603,
       "RandomForest": 1.415,
-      "XGBoost": 1.1613,
+      "XGBoost": 1.0873,
       "LSTM": 1.1016
     },
     {
       "date": "2024-11-21",
       "Buy & Hold": 1.5644,
       "RandomForest": 1.5158,
-      "XGBoost": 1.2344,
+      "XGBoost": 1.1083,
       "LSTM": 1.1016
     },
     {
       "date": "2024-11-24",
       "Buy & Hold": 1.4713,
       "RandomForest": 1.4257,
-      "XGBoost": 1.1598,
+      "XGBoost": 1.0925,
       "LSTM": 1.048
     },
     {
       "date": "2024-11-27",
       "Buy & Hold": 1.513,
       "RandomForest": 1.4661,
-      "XGBoost": 1.1926,
+      "XGBoost": 1.1223,
       "LSTM": 1.0777
     },
     {
       "date": "2024-11-30",
       "Buy & Hold": 1.5374,
       "RandomForest": 1.4897,
-      "XGBoost": 1.1869,
+      "XGBoost": 1.1291,
       "LSTM": 1.0951
     },
     {
       "date": "2024-12-03",
       "Buy & Hold": 1.5596,
       "RandomForest": 1.5112,
-      "XGBoost": 1.2015,
+      "XGBoost": 1.1279,
       "LSTM": 1.1109
     },
     {
       "date": "2024-12-06",
       "Buy & Hold": 1.5792,
       "RandomForest": 1.5302,
-      "XGBoost": 1.1802,
+      "XGBoost": 1.1068,
       "LSTM": 1.1249
     },
     {
       "date": "2024-12-09",
       "Buy & Hold": 1.528,
       "RandomForest": 1.4806,
-      "XGBoost": 1.179,
+      "XGBoost": 1.0969,
       "LSTM": 1.0884
     },
     {
       "date": "2024-12-12",
       "Buy & Hold": 1.6044,
       "RandomForest": 1.5547,
-      "XGBoost": 1.2319,
+      "XGBoost": 1.1345,
       "LSTM": 1.1533
     },
     {
       "date": "2024-12-15",
       "Buy & Hold": 1.6777,
       "RandomForest": 1.6257,
-      "XGBoost": 1.2294,
+      "XGBoost": 1.1345,
       "LSTM": 1.206
     },
     {
       "date": "2024-12-18",
       "Buy & Hold": 1.5417,
       "RandomForest": 1.4939,
-      "XGBoost": 1.1584,
+      "XGBoost": 1.0407,
       "LSTM": 1.1053
     },
     {
       "date": "2024-12-21",
       "Buy & Hold": 1.5057,
       "RandomForest": 1.459,
-      "XGBoost": 1.1262,
+      "XGBoost": 1.0322,
       "LSTM": 1.1022
     },
     {
       "date": "2024-12-24",
       "Buy & Hold": 1.5729,
       "RandomForest": 1.5241,
-      "XGBoost": 1.1251,
+      "XGBoost": 1.0712,
       "LSTM": 1.1022
     },
     {
       "date": "2024-12-27",
       "Buy & Hold": 1.5075,
       "RandomForest": 1.5132,
-      "XGBoost": 1.1359,
+      "XGBoost": 1.0814,
       "LSTM": 1.1022
     },
     {
       "date": "2024-12-30",
       "Buy & Hold": 1.4803,
       "RandomForest": 1.5076,
-      "XGBoost": 1.1317,
+      "XGBoost": 1.0774,
       "LSTM": 1.1104
     },
     {
       "date": "2025-01-02",
       "Buy & Hold": 1.553,
       "RandomForest": 1.5224,
-      "XGBoost": 1.1428,
+      "XGBoost": 1.088,
       "LSTM": 1.165
     },
     {
       "date": "2025-01-05",
       "Buy & Hold": 1.6173,
       "RandomForest": 1.5808,
-      "XGBoost": 1.1411,
+      "XGBoost": 1.0864,
       "LSTM": 1.2132
     },
     {
       "date": "2025-01-08",
       "Buy & Hold": 1.4641,
       "RandomForest": 1.4311,
-      "XGBoost": 1.0504,
+      "XGBoost": 1.0001,
       "LSTM": 1.1494
     },
     {
       "date": "2025-01-11",
       "Buy & Hold": 1.4956,
       "RandomForest": 1.4613,
-      "XGBoost": 1.074,
+      "XGBoost": 1.0225,
       "LSTM": 1.1476
     },
     {
       "date": "2025-01-14",
       "Buy & Hold": 1.5898,
       "RandomForest": 1.4896,
-      "XGBoost": 1.0718,
+      "XGBoost": 1.0423,
       "LSTM": 1.1709
     },
     {
       "date": "2025-01-17",
       "Buy & Hold": 1.654,
       "RandomForest": 1.5396,
-      "XGBoost": 1.1134,
+      "XGBoost": 1.0828,
       "LSTM": 1.2101
     },
     {
       "date": "2025-01-20",
       "Buy & Hold": 1.6791,
       "RandomForest": 1.5614,
-      "XGBoost": 1.1134,
+      "XGBoost": 1.0828,
       "LSTM": 1.1812
     },
     {
       "date": "2025-01-23",
       "Buy & Hold": 1.6589,
       "RandomForest": 1.5365,
-      "XGBoost": 1.1134,
+      "XGBoost": 1.0828,
       "LSTM": 1.1812
     },
     {
       "date": "2025-01-26",
       "Buy & Hold": 1.6148,
       "RandomForest": 1.5254,
-      "XGBoost": 1.084,
+      "XGBoost": 1.0828,
       "LSTM": 1.1487
     },
     {
       "date": "2025-01-29",
       "Buy & Hold": 1.6566,
       "RandomForest": 1.5649,
-      "XGBoost": 1.112,
+      "XGBoost": 1.1097,
       "LSTM": 1.1488
     },
     {
       "date": "2025-02-01",
       "Buy & Hold": 1.5455,
       "RandomForest": 1.46,
-      "XGBoost": 1.0538,
+      "XGBoost": 1.0516,
       "LSTM": 1.0718
     },
     {
       "date": "2025-02-04",
       "Buy & Hold": 1.5283,
       "RandomForest": 1.4437,
-      "XGBoost": 1.0421,
+      "XGBoost": 1.0399,
       "LSTM": 1.0599
     },
     {
       "date": "2025-02-07",
       "Buy & Hold": 1.5257,
       "RandomForest": 1.4412,
-      "XGBoost": 1.0403,
+      "XGBoost": 1.0381,
       "LSTM": 1.058
     },
     {
       "date": "2025-02-10",
       "Buy & Hold": 1.5151,
       "RandomForest": 1.4545,
-      "XGBoost": 1.0331,
+      "XGBoost": 1.0477,
       "LSTM": 1.0507
     },
     {
       "date": "2025-02-13",
       "Buy & Hold": 1.5424,
       "RandomForest": 1.4833,
-      "XGBoost": 1.0546,
+      "XGBoost": 1.0772,
       "LSTM": 1.0696
     },
     {
       "date": "2025-02-16",
       "Buy & Hold": 1.5151,
       "RandomForest": 1.4546,
-      "XGBoost": 1.0498,
+      "XGBoost": 1.0713,
       "LSTM": 1.0507
     },
     {
       "date": "2025-02-19",
       "Buy & Hold": 1.5551,
       "RandomForest": 1.4929,
-      "XGBoost": 1.0476,
+      "XGBoost": 1.069,
       "LSTM": 1.0784
     },
     {
       "date": "2025-02-22",
       "Buy & Hold": 1.5227,
       "RandomForest": 1.4911,
-      "XGBoost": 1.0434,
+      "XGBoost": 1.0647,
       "LSTM": 1.056
     },
     {
       "date": "2025-02-25",
       "Buy & Hold": 1.3328,
       "RandomForest": 1.3051,
-      "XGBoost": 0.9132,
+      "XGBoost": 0.9319,
       "LSTM": 0.9242
     },
     {
       "date": "2025-02-28",
       "Buy & Hold": 1.3615,
       "RandomForest": 1.3332,
-      "XGBoost": 0.9329,
+      "XGBoost": 0.9519,
       "LSTM": 0.9372
     },
     {
       "date": "2025-03-03",
       "Buy & Hold": 1.3807,
       "RandomForest": 1.3521,
-      "XGBoost": 0.9461,
+      "XGBoost": 1.0534,
       "LSTM": 0.9504
     },
     {
       "date": "2025-03-06",
       "Buy & Hold": 1.3731,
       "RandomForest": 1.4022,
-      "XGBoost": 0.9811,
+      "XGBoost": 1.0925,
       "LSTM": 0.9495
     },
     {
       "date": "2025-03-09",
       "Buy & Hold": 1.2433,
       "RandomForest": 1.3519,
-      "XGBoost": 0.9459,
+      "XGBoost": 1.0533,
       "LSTM": 0.9234
     },
     {
       "date": "2025-03-12",
       "Buy & Hold": 1.2832,
       "RandomForest": 1.3952,
-      "XGBoost": 1.0061,
+      "XGBoost": 1.1203,
       "LSTM": 0.9013
     },
     {
       "date": "2025-03-15",
       "Buy & Hold": 1.3062,
       "RandomForest": 1.4431,
-      "XGBoost": 1.0396,
+      "XGBoost": 1.1322,
       "LSTM": 0.9176
     },
     {
       "date": "2025-03-18",
       "Buy & Hold": 1.3738,
       "RandomForest": 1.4431,
-      "XGBoost": 1.0396,
+      "XGBoost": 1.1311,
       "LSTM": 0.965
     },
     {
       "date": "2025-03-21",
       "Buy & Hold": 1.3263,
       "RandomForest": 1.4431,
-      "XGBoost": 1.0396,
+      "XGBoost": 1.1311,
       "LSTM": 0.9316
     },
     {
       "date": "2025-03-24",
       "Buy & Hold": 1.3825,
       "RandomForest": 1.4431,
-      "XGBoost": 1.0396,
+      "XGBoost": 1.1311,
       "LSTM": 0.9711
     },
     {
       "date": "2025-03-27",
       "Buy & Hold": 1.3355,
       "RandomForest": 1.4431,
-      "XGBoost": 1.0396,
+      "XGBoost": 1.1311,
       "LSTM": 0.9381
     },
     {
       "date": "2025-03-30",
       "Buy & Hold": 1.3059,
       "RandomForest": 1.4399,
-      "XGBoost": 1.0373,
+      "XGBoost": 1.1286,
       "LSTM": 0.9173
     },
     {
       "date": "2025-04-02",
       "Buy & Hold": 1.3163,
       "RandomForest": 1.495,
-      "XGBoost": 1.077,
+      "XGBoost": 1.1718,
       "LSTM": 0.9247
     },
     {
       "date": "2025-04-05",
       "Buy & Hold": 1.2407,
       "RandomForest": 1.4935,
-      "XGBoost": 1.0759,
+      "XGBoost": 1.1706,
       "LSTM": 0.8715
     },
     {
       "date": "2025-04-08",
       "Buy & Hold": 1.3069,
       "RandomForest": 1.5716,
-      "XGBoost": 1.1322,
+      "XGBoost": 1.2318,
       "LSTM": 0.8472
     },
     {
       "date": "2025-04-11",
       "Buy & Hold": 1.349,
       "RandomForest": 1.6222,
-      "XGBoost": 1.2104,
+      "XGBoost": 1.3169,
       "LSTM": 0.8472
     },
     {
       "date": "2025-04-14",
       "Buy & Hold": 1.3232,
       "RandomForest": 1.6206,
-      "XGBoost": 1.2092,
+      "XGBoost": 1.3156,
       "LSTM": 0.8472
     },
     {
       "date": "2025-04-17",
       "Buy & Hold": 1.3363,
       "RandomForest": 1.6206,
-      "XGBoost": 1.2092,
+      "XGBoost": 1.3156,
       "LSTM": 0.8472
     },
     {
       "date": "2025-04-20",
       "Buy & Hold": 1.3844,
       "RandomForest": 1.6206,
-      "XGBoost": 1.2092,
+      "XGBoost": 1.3156,
       "LSTM": 0.8769
     },
     {
       "date": "2025-04-23",
       "Buy & Hold": 1.4867,
       "RandomForest": 1.7386,
-      "XGBoost": 1.2149,
+      "XGBoost": 1.3183,
       "LSTM": 0.9416
     },
     {
       "date": "2025-04-26",
       "Buy & Hold": 1.483,
       "RandomForest": 1.7343,
-      "XGBoost": 1.2222,
+      "XGBoost": 1.3262,
       "LSTM": 0.9393
     },
     {
       "date": "2025-04-29",
       "Buy & Hold": 1.4897,
       "RandomForest": 1.7154,
-      "XGBoost": 1.2222,
+      "XGBoost": 1.3262,
       "LSTM": 0.9436
     },
     {
       "date": "2025-05-02",
       "Buy & Hold": 1.5164,
       "RandomForest": 1.7024,
-      "XGBoost": 1.208,
+      "XGBoost": 1.3162,
       "LSTM": 0.9604
     },
     {
       "date": "2025-05-05",
       "Buy & Hold": 1.5318,
       "RandomForest": 1.7198,
-      "XGBoost": 1.2203,
+      "XGBoost": 1.3296,
       "LSTM": 0.9702
     },
     {
       "date": "2025-05-08",
       "Buy & Hold": 1.6289,
       "RandomForest": 1.8288,
-      "XGBoost": 1.2977,
+      "XGBoost": 1.4139,
       "LSTM": 1.0317
     },
     {
       "date": "2025-05-11",
       "Buy & Hold": 1.6261,
       "RandomForest": 1.8256,
-      "XGBoost": 1.2786,
+      "XGBoost": 1.4125,
       "LSTM": 1.0299
     },
     {
       "date": "2025-05-14",
       "Buy & Hold": 1.6414,
       "RandomForest": 1.8429,
-      "XGBoost": 1.2718,
+      "XGBoost": 1.4125,
       "LSTM": 1.0397
     },
     {
       "date": "2025-05-17",
       "Buy & Hold": 1.684,
       "RandomForest": 1.8906,
-      "XGBoost": 1.2628,
+      "XGBoost": 1.4477,
       "LSTM": 1.0666
     },
     {
       "date": "2025-05-20",
       "Buy & Hold": 1.7345,
       "RandomForest": 1.9473,
-      "XGBoost": 1.2993,
+      "XGBoost": 1.4911,
       "LSTM": 1.0695
     },
     {
       "date": "2025-05-23",
       "Buy & Hold": 1.7047,
       "RandomForest": 1.9139,
-      "XGBoost": 1.277,
+      "XGBoost": 1.4655,
       "LSTM": 1.0729
     },
     {
       "date": "2025-05-26",
       "Buy & Hold": 1.7233,
       "RandomForest": 1.9348,
-      "XGBoost": 1.2955,
+      "XGBoost": 1.4809,
       "LSTM": 1.0846
     },
     {
       "date": "2025-05-29",
       "Buy & Hold": 1.6449,
       "RandomForest": 1.8468,
-      "XGBoost": 1.2585,
+      "XGBoost": 1.4386,
       "LSTM": 1.0443
     },
     {
       "date": "2025-06-01",
       "Buy & Hold": 1.6746,
       "RandomForest": 1.88,
-      "XGBoost": 1.2773,
+      "XGBoost": 1.46,
       "LSTM": 1.0443
     },
     {
       "date": "2025-06-04",
       "Buy & Hold": 1.6058,
       "RandomForest": 1.8028,
-      "XGBoost": 1.2236,
+      "XGBoost": 1.3987,
       "LSTM": 1.004
     },
     {
       "date": "2025-06-07",
       "Buy & Hold": 1.6726,
       "RandomForest": 1.8727,
-      "XGBoost": 1.2711,
+      "XGBoost": 1.4529,
       "LSTM": 1.0458
     },
     {
       "date": "2025-06-10",
       "Buy & Hold": 1.7187,
       "RandomForest": 1.9224,
-      "XGBoost": 1.3048,
+      "XGBoost": 1.4914,
       "LSTM": 1.0746
     },
     {
       "date": "2025-06-13",
       "Buy & Hold": 1.6676,
       "RandomForest": 1.8652,
-      "XGBoost": 1.299,
+      "XGBoost": 1.4848,
       "LSTM": 1.0735
     },
     {
       "date": "2025-06-16",
       "Buy & Hold": 1.6539,
       "RandomForest": 1.8499,
-      "XGBoost": 1.2836,
+      "XGBoost": 1.4672,
       "LSTM": 1.0618
     },
     {
       "date": "2025-06-19",
       "Buy & Hold": 1.6341,
       "RandomForest": 1.8278,
-      "XGBoost": 1.2682,
+      "XGBoost": 1.4496,
       "LSTM": 1.0491
     },
     {
       "date": "2025-06-22",
       "Buy & Hold": 1.6663,
       "RandomForest": 1.8638,
-      "XGBoost": 1.2932,
+      "XGBoost": 1.4782,
       "LSTM": 1.0698
     },
     {
       "date": "2025-06-25",
       "Buy & Hold": 1.6918,
       "RandomForest": 1.8664,
-      "XGBoost": 1.2919,
+      "XGBoost": 1.4767,
       "LSTM": 1.0861
     },
     {
       "date": "2025-06-28",
       "Buy & Hold": 1.7141,
       "RandomForest": 1.891,
-      "XGBoost": 1.2935,
+      "XGBoost": 1.4786,
       "LSTM": 1.1005
     },
     {
       "date": "2025-07-01",
       "Buy & Hold": 1.7219,
       "RandomForest": 1.8996,
-      "XGBoost": 1.2591,
+      "XGBoost": 1.4392,
       "LSTM": 1.1055
     },
     {
       "date": "2025-07-04",
       "Buy & Hold": 1.7095,
       "RandomForest": 1.8859,
-      "XGBoost": 1.2466,
+      "XGBoost": 1.4274,
       "LSTM": 1.0975
     },
     {
       "date": "2025-07-07",
       "Buy & Hold": 1.7041,
       "RandomForest": 1.88,
-      "XGBoost": 1.2438,
+      "XGBoost": 1.426,
       "LSTM": 1.094
     },
     {
       "date": "2025-07-10",
       "Buy & Hold": 1.8317,
       "RandomForest": 2.0208,
-      "XGBoost": 1.3356,
+      "XGBoost": 1.426,
       "LSTM": 1.176
     },
     {
       "date": "2025-07-13",
       "Buy & Hold": 1.8853,
       "RandomForest": 2.0799,
-      "XGBoost": 1.329,
+      "XGBoost": 1.426,
       "LSTM": 1.2104
     },
     {
       "date": "2025-07-16",
       "Buy & Hold": 1.8714,
       "RandomForest": 2.0645,
-      "XGBoost": 1.3079,
+      "XGBoost": 1.426,
       "LSTM": 1.2014
     },
     {
       "date": "2025-07-19",
       "Buy & Hold": 1.8648,
       "RandomForest": 2.0573,
-      "XGBoost": 1.302,
+      "XGBoost": 1.426,
       "LSTM": 1.1972
     },
     {
       "date": "2025-07-22",
       "Buy & Hold": 1.8873,
       "RandomForest": 2.0822,
-      "XGBoost": 1.3164,
+      "XGBoost": 1.4417,
       "LSTM": 1.2117
     },
     {
       "date": "2025-07-25",
       "Buy & Hold": 1.855,
       "RandomForest": 2.0465,
-      "XGBoost": 1.2939,
+      "XGBoost": 1.4171,
       "LSTM": 1.191
     },
     {
       "date": "2025-07-28",
       "Buy & Hold": 1.8654,
       "RandomForest": 2.0579,
-      "XGBoost": 1.3011,
+      "XGBoost": 1.4061,
       "LSTM": 1.1976
     },
     {
       "date": "2025-07-31",
       "Buy & Hold": 1.8312,
       "RandomForest": 2.0202,
-      "XGBoost": 1.2773,
+      "XGBoost": 1.3804,
       "LSTM": 1.1757
     },
     {
       "date": "2025-08-03",
       "Buy & Hold": 1.8162,
       "RandomForest": 2.0037,
-      "XGBoost": 1.2668,
+      "XGBoost": 1.3691,
       "LSTM": 1.1676
     },
     {
       "date": "2025-08-06",
       "Buy & Hold": 1.8155,
       "RandomForest": 2.0029,
-      "XGBoost": 1.2663,
+      "XGBoost": 1.3686,
       "LSTM": 1.1672
     },
     {
       "date": "2025-08-09",
       "Buy & Hold": 1.8466,
       "RandomForest": 2.0372,
-      "XGBoost": 1.288,
+      "XGBoost": 1.392,
       "LSTM": 1.1872
     },
     {
       "date": "2025-08-12",
       "Buy & Hold": 1.8868,
       "RandomForest": 2.0816,
-      "XGBoost": 1.3113,
+      "XGBoost": 1.4172,
       "LSTM": 1.2087
     },
     {
       "date": "2025-08-15",
       "Buy & Hold": 1.8614,
       "RandomForest": 2.0535,
-      "XGBoost": 1.3558,
+      "XGBoost": 1.4653,
       "LSTM": 1.1912
     },
     {
       "date": "2025-08-18",
       "Buy & Hold": 1.8312,
       "RandomForest": 2.0202,
-      "XGBoost": 1.3325,
+      "XGBoost": 1.4433,
       "LSTM": 1.1719
     },
     {
       "date": "2025-08-21",
       "Buy & Hold": 1.785,
       "RandomForest": 1.9693,
-      "XGBoost": 1.2989,
+      "XGBoost": 1.4069,
       "LSTM": 1.1423
     },
     {
       "date": "2025-08-24",
       "Buy & Hold": 1.7907,
       "RandomForest": 2.0155,
-      "XGBoost": 1.3097,
+      "XGBoost": 1.4186,
       "LSTM": 1.146
     },
     {
       "date": "2025-08-27",
       "Buy & Hold": 1.7662,
       "RandomForest": 1.9859,
-      "XGBoost": 1.2918,
+      "XGBoost": 1.4389,
       "LSTM": 1.1303
     },
     {
       "date": "2025-08-30",
       "Buy & Hold": 1.7312,
       "RandomForest": 1.9466,
-      "XGBoost": 1.2662,
+      "XGBoost": 1.4104,
       "LSTM": 1.1079
     },
     {
       "date": "2025-09-02",
       "Buy & Hold": 1.7553,
       "RandomForest": 1.9736,
-      "XGBoost": 1.2838,
+      "XGBoost": 1.43,
       "LSTM": 1.1233
     },
     {
       "date": "2025-09-05",
       "Buy & Hold": 1.7431,
       "RandomForest": 1.9699,
-      "XGBoost": 1.2814,
+      "XGBoost": 1.4286,
       "LSTM": 1.1155
     },
     {
       "date": "2025-09-08",
       "Buy & Hold": 1.7646,
       "RandomForest": 2.0014,
-      "XGBoost": 1.3019,
+      "XGBoost": 1.4286,
       "LSTM": 1.1334
     },
     {
       "date": "2025-09-11",
       "Buy & Hold": 1.8355,
       "RandomForest": 2.0089,
-      "XGBoost": 1.3019,
+      "XGBoost": 1.4286,
       "LSTM": 1.1334
     },
     {
       "date": "2025-09-14",
       "Buy & Hold": 1.8247,
       "RandomForest": 1.9971,
-      "XGBoost": 1.2942,
+      "XGBoost": 1.4188,
       "LSTM": 1.133
     },
     {
       "date": "2025-09-17",
       "Buy & Hold": 1.852,
       "RandomForest": 2.027,
-      "XGBoost": 1.2866,
+      "XGBoost": 1.4104,
       "LSTM": 1.15
     },
     {
       "date": "2025-09-20",
       "Buy & Hold": 1.8229,
       "RandomForest": 1.9951,
-      "XGBoost": 1.262,
+      "XGBoost": 1.3834,
       "LSTM": 1.1319
     },
     {
       "date": "2025-09-23",
       "Buy & Hold": 1.7924,
       "RandomForest": 1.9618,
-      "XGBoost": 1.2409,
+      "XGBoost": 1.3603,
       "LSTM": 1.113
     },
     {
       "date": "2025-09-26",
       "Buy & Hold": 1.7343,
       "RandomForest": 1.8982,
-      "XGBoost": 1.2007,
+      "XGBoost": 1.3162,
       "LSTM": 1.0769
     },
     {
       "date": "2025-09-29",
       "Buy & Hold": 1.7886,
       "RandomForest": 1.9576,
-      "XGBoost": 1.2271,
+      "XGBoost": 1.3292,
       "LSTM": 1.1106
     },
     {
       "date": "2025-10-02",
       "Buy & Hold": 1.9018,
       "RandomForest": 2.0815,
-      "XGBoost": 1.2537,
+      "XGBoost": 1.3448,
       "LSTM": 1.1358
     },
     {
       "date": "2025-10-05",
       "Buy & Hold": 1.955,
       "RandomForest": 2.1397,
-      "XGBoost": 1.2515,
+      "XGBoost": 1.3435,
       "LSTM": 1.1675
     },
     {
       "date": "2025-10-08",
       "Buy & Hold": 1.941,
       "RandomForest": 2.1244,
-      "XGBoost": 1.2638,
+      "XGBoost": 1.3435,
       "LSTM": 1.1592
     },
     {
       "date": "2025-10-11",
       "Buy & Hold": 1.7407,
       "RandomForest": 2.0649,
-      "XGBoost": 1.2389,
+      "XGBoost": 1.317,
       "LSTM": 1.0396
     },
     {
       "date": "2025-10-14",
       "Buy & Hold": 1.7832,
       "RandomForest": 2.1504,
-      "XGBoost": 1.2691,
+      "XGBoost": 1.3491,
       "LSTM": 1.0145
     },
     {
       "date": "2025-10-17",
       "Buy & Hold": 1.6919,
       "RandomForest": 2.0719,
-      "XGBoost": 1.224,
+      "XGBoost": 1.3214,
       "LSTM": 0.9625
     },
     {
       "date": "2025-10-20",
       "Buy & Hold": 1.7425,
       "RandomForest": 2.1339,
-      "XGBoost": 1.2606,
+      "XGBoost": 1.3609,
       "LSTM": 0.9913
     },
     {
       "date": "2025-10-23",
       "Buy & Hold": 1.7488,
       "RandomForest": 2.1789,
-      "XGBoost": 1.2872,
+      "XGBoost": 1.3896,
       "LSTM": 0.9949
     },
     {
       "date": "2025-10-26",
       "Buy & Hold": 1.8196,
       "RandomForest": 2.1767,
-      "XGBoost": 1.2859,
+      "XGBoost": 1.3882,
       "LSTM": 1.0352
     },
     {
       "date": "2025-10-29",
       "Buy & Hold": 1.7489,
       "RandomForest": 2.1767,
-      "XGBoost": 1.2859,
+      "XGBoost": 1.3882,
       "LSTM": 0.995
     },
     {
       "date": "2025-11-01",
       "Buy & Hold": 1.7402,
       "RandomForest": 2.1716,
-      "XGBoost": 1.2829,
+      "XGBoost": 1.385,
       "LSTM": 0.9866
     },
     {
       "date": "2025-11-04",
       "Buy & Hold": 1.5801,
       "RandomForest": 1.9699,
-      "XGBoost": 1.1637,
+      "XGBoost": 1.2586,
       "LSTM": 0.8949
     },
     {
       "date": "2025-11-07",
       "Buy & Hold": 1.6292,
       "RandomForest": 2.031,
-      "XGBoost": 1.1998,
+      "XGBoost": 1.2976,
       "LSTM": 0.9227
     },
     {
       "date": "2025-11-10",
       "Buy & Hold": 1.691,
       "RandomForest": 2.094,
-      "XGBoost": 1.2371,
+      "XGBoost": 1.3379,
       "LSTM": 0.9577
     },
     {
       "date": "2025-11-13",
       "Buy & Hold": 1.5635,
       "RandomForest": 2.0025,
-      "XGBoost": 1.183,
+      "XGBoost": 1.2794,
       "LSTM": 0.8855
     },
     {
       "date": "2025-11-16",
       "Buy & Hold": 1.5031,
       "RandomForest": 1.9252,
-      "XGBoost": 1.1373,
+      "XGBoost": 1.23,
       "LSTM": 0.8513
     },
     {
       "date": "2025-11-19",
       "Buy & Hold": 1.4587,
       "RandomForest": 1.8683,
-      "XGBoost": 1.1037,
+      "XGBoost": 1.1937,
       "LSTM": 0.8261
     },
     {
       "date": "2025-11-22",
       "Buy & Hold": 1.3518,
       "RandomForest": 1.7314,
-      "XGBoost": 1.0229,
+      "XGBoost": 1.1062,
       "LSTM": 0.7656
     },
     {
       "date": "2025-11-25",
       "Buy & Hold": 1.3847,
       "RandomForest": 1.7735,
-      "XGBoost": 1.0477,
+      "XGBoost": 1.1331,
       "LSTM": 0.7842
     },
     {
       "date": "2025-11-28",
       "Buy & Hold": 1.4402,
       "RandomForest": 1.8349,
-      "XGBoost": 1.084,
+      "XGBoost": 1.1723,
       "LSTM": 0.8157
     },
     {
       "date": "2025-12-01",
       "Buy & Hold": 1.3716,
       "RandomForest": 1.8349,
-      "XGBoost": 1.084,
+      "XGBoost": 1.1723,
       "LSTM": 0.7768
     },
     {
       "date": "2025-12-04",
       "Buy & Hold": 1.4625,
       "RandomForest": 1.9381,
-      "XGBoost": 1.145,
+      "XGBoost": 1.2383,
       "LSTM": 0.8283
     },
     {
       "date": "2025-12-07",
       "Buy & Hold": 1.4358,
       "RandomForest": 1.9381,
-      "XGBoost": 1.145,
+      "XGBoost": 1.2383,
       "LSTM": 0.8131
     },
     {
       "date": "2025-12-10",
       "Buy & Hold": 1.4372,
       "RandomForest": 1.9381,
-      "XGBoost": 1.145,
+      "XGBoost": 1.2383,
       "LSTM": 0.8139
     },
     {
       "date": "2025-12-13",
       "Buy & Hold": 1.4303,
       "RandomForest": 1.9381,
-      "XGBoost": 1.145,
+      "XGBoost": 1.2383,
       "LSTM": 0.8084
     },
     {
       "date": "2025-12-16",
       "Buy & Hold": 1.388,
       "RandomForest": 1.9142,
-      "XGBoost": 1.1308,
+      "XGBoost": 1.223,
       "LSTM": 0.7837
     },
     {
       "date": "2025-12-19",
       "Buy & Hold": 1.3939,
       "RandomForest": 1.9222,
-      "XGBoost": 1.1356,
+      "XGBoost": 1.2282,
       "LSTM": 0.787
     },
     {
       "date": "2025-12-22",
       "Buy & Hold": 1.4014,
       "RandomForest": 1.9081,
-      "XGBoost": 1.1345,
+      "XGBoost": 1.2269,
       "LSTM": 0.7913
     },
     {
       "date": "2025-12-25",
       "Buy & Hold": 1.3815,
       "RandomForest": 1.9062,
-      "XGBoost": 1.1345,
+      "XGBoost": 1.2269,
       "LSTM": 0.7801
     },
     {
       "date": "2025-12-28",
       "Buy & Hold": 1.3923,
       "RandomForest": 1.9052,
-      "XGBoost": 1.1323,
+      "XGBoost": 1.2246,
       "LSTM": 0.7804
     },
     {
       "date": "2025-12-31",
       "Buy & Hold": 1.3901,
       "RandomForest": 1.9022,
-      "XGBoost": 1.139,
+      "XGBoost": 1.2318,
       "LSTM": 0.7657
     },
     {
       "date": "2026-01-03",
       "Buy & Hold": 1.4412,
       "RandomForest": 1.9721,
-      "XGBoost": 1.1678,
+      "XGBoost": 1.263,
       "LSTM": 0.7938
     },
     {
       "date": "2026-01-06",
       "Buy & Hold": 1.4637,
       "RandomForest": 2.003,
-      "XGBoost": 1.2019,
+      "XGBoost": 1.2999,
       "LSTM": 0.8063
     },
     {
       "date": "2026-01-09",
       "Buy & Hold": 1.4339,
       "RandomForest": 1.9621,
-      "XGBoost": 1.1762,
+      "XGBoost": 1.2784,
       "LSTM": 0.7898
     },
     {
       "date": "2026-01-12",
       "Buy & Hold": 1.4456,
       "RandomForest": 1.9782,
-      "XGBoost": 1.1859,
+      "XGBoost": 1.2727,
       "LSTM": 0.7963
     },
     {
       "date": "2026-01-15",
       "Buy & Hold": 1.5115,
       "RandomForest": 2.0683,
-      "XGBoost": 1.1841,
+      "XGBoost": 1.2707,
       "LSTM": 0.8325
     },
     {
       "date": "2026-01-18",
       "Buy & Hold": 1.4644,
       "RandomForest": 2.0038,
-      "XGBoost": 1.1458,
+      "XGBoost": 1.2695,
       "LSTM": 0.8066
     },
     {
       "date": "2026-01-21",
       "Buy & Hold": 1.4262,
       "RandomForest": 1.9516,
-      "XGBoost": 1.1612,
+      "XGBoost": 1.232,
       "LSTM": 0.7856
     },
     {
       "date": "2026-01-24",
       "Buy & Hold": 1.4108,
       "RandomForest": 1.9306,
-      "XGBoost": 1.1487,
+      "XGBoost": 1.2187,
       "LSTM": 0.7771
     },
     {
       "date": "2026-01-27",
       "Buy & Hold": 1.4128,
       "RandomForest": 1.9332,
-      "XGBoost": 1.1503,
+      "XGBoost": 1.2204,
       "LSTM": 0.7782
     },
     {
       "date": "2026-01-30",
       "Buy & Hold": 1.329,
       "RandomForest": 1.8244,
-      "XGBoost": 1.0821,
+      "XGBoost": 1.1517,
       "LSTM": 0.732
     },
     {
       "date": "2026-02-02",
       "Buy & Hold": 1.2489,
       "RandomForest": 1.7144,
-      "XGBoost": 1.0169,
+      "XGBoost": 1.0823,
       "LSTM": 0.6879
     },
     {
       "date": "2026-02-05",
       "Buy & Hold": 1.0321,
       "RandomForest": 1.4169,
-      "XGBoost": 0.8404,
+      "XGBoost": 0.8944,
       "LSTM": 0.5685
     },
     {
       "date": "2026-02-08",
       "Buy & Hold": 1.1133,
       "RandomForest": 1.5284,
-      "XGBoost": 0.9065,
+      "XGBoost": 0.9648,
       "LSTM": 0.6132
     },
     {
       "date": "2026-02-11",
       "Buy & Hold": 1.0699,
       "RandomForest": 1.4688,
-      "XGBoost": 0.8899,
+      "XGBoost": 0.9471,
       "LSTM": 0.5893
     },
     {
       "date": "2026-02-14",
       "Buy & Hold": 1.1016,
       "RandomForest": 1.5123,
-      "XGBoost": 0.9062,
+      "XGBoost": 0.9742,
       "LSTM": 0.6068
     },
     {
       "date": "2026-02-17",
       "Buy & Hold": 1.0613,
       "RandomForest": 1.5108,
-      "XGBoost": 0.9062,
+      "XGBoost": 0.9732,
       "LSTM": 0.5846
     },
     {
       "date": "2026-02-20",
       "Buy & Hold": 1.0757,
       "RandomForest": 1.5356,
-      "XGBoost": 0.9096,
+      "XGBoost": 0.9854,
       "LSTM": 0.5925
     },
     {
       "date": "2026-02-23",
       "Buy & Hold": 1.0174,
       "RandomForest": 1.5297,
-      "XGBoost": 0.907,
+      "XGBoost": 0.9816,
       "LSTM": 0.5604
     },
     {
       "date": "2026-02-26",
       "Buy & Hold": 1.0635,
       "RandomForest": 1.5655,
-      "XGBoost": 0.9632,
+      "XGBoost": 1.0424,
       "LSTM": 0.5858
     },
     {
       "date": "2026-03-01",
       "Buy & Hold": 1.0539,
       "RandomForest": 1.5655,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.5805
     },
     {
       "date": "2026-03-04",
       "Buy & Hold": 1.1483,
       "RandomForest": 1.5655,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.6325
     },
     {
       "date": "2026-03-07",
       "Buy & Hold": 1.0651,
       "RandomForest": 1.5655,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.5867
     },
     {
       "date": "2026-03-10",
       "Buy & Hold": 1.1067,
       "RandomForest": 1.621,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.6096
     },
     {
       "date": "2026-03-13",
       "Buy & Hold": 1.1213,
       "RandomForest": 1.621,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.6176
     },
     {
       "date": "2026-03-16",
       "Buy & Hold": 1.1692,
       "RandomForest": 1.6452,
-      "XGBoost": 0.9812,
+      "XGBoost": 1.0619,
       "LSTM": 0.644
     },
     {
       "date": "2026-03-19",
       "Buy & Hold": 1.1154,
       "RandomForest": 1.5959,
-      "XGBoost": 0.9884,
+      "XGBoost": 1.0619,
       "LSTM": 0.6202
     },
     {
       "date": "2026-03-22",
       "Buy & Hold": 1.1217,
       "RandomForest": 1.6048,
-      "XGBoost": 0.9939,
+      "XGBoost": 1.0668,
       "LSTM": 0.6202
     },
     {
       "date": "2026-03-25",
       "Buy & Hold": 1.0887,
       "RandomForest": 1.5576,
-      "XGBoost": 0.9929,
+      "XGBoost": 1.0657,
       "LSTM": 0.6202
     },
     {
       "date": "2026-03-28",
       "Buy & Hold": 1.0442,
       "RandomForest": 1.5452,
-      "XGBoost": 0.9905,
+      "XGBoost": 1.0631,
       "LSTM": 0.6202
     },
     {
       "date": "2026-03-31",
       "Buy & Hold": 1.0775,
       "RandomForest": 1.5968,
-      "XGBoost": 1.0226,
+      "XGBoost": 1.0976,
       "LSTM": 0.6403
     },
     {
       "date": "2026-04-03",
       "Buy & Hold": 1.0646,
       "RandomForest": 1.6048,
-      "XGBoost": 1.0276,
+      "XGBoost": 1.103,
       "LSTM": 0.6434
     },
     {
       "date": "2026-04-06",
       "Buy & Hold": 1.1378,
       "RandomForest": 1.6031,
-      "XGBoost": 1.0266,
+      "XGBoost": 1.1019,
       "LSTM": 0.6876
     },
     {
       "date": "2026-04-09",
       "Buy & Hold": 1.1542,
       "RandomForest": 1.6247,
-      "XGBoost": 1.0266,
+      "XGBoost": 1.1019,
       "LSTM": 0.6976
     },
     {
       "date": "2026-04-12",
       "Buy & Hold": 1.1772,
       "RandomForest": 1.5736,
-      "XGBoost": 1.0266,
+      "XGBoost": 1.1019,
       "LSTM": 0.7115
     },
     {
       "date": "2026-04-15",
       "Buy & Hold": 1.1889,
       "RandomForest": 1.5876,
-      "XGBoost": 1.0397,
+      "XGBoost": 1.1058,
       "LSTM": 0.7185
     },
     {
       "date": "2026-04-18",
       "Buy & Hold": 1.1675,
       "RandomForest": 1.5974,
-      "XGBoost": 1.018,
+      "XGBoost": 1.0828,
       "LSTM": 0.7056
     },
     {
       "date": "2026-04-21",
       "Buy & Hold": 1.2367,
       "RandomForest": 1.6904,
-      "XGBoost": 1.0773,
+      "XGBoost": 1.1459,
       "LSTM": 0.7474
     },
     {
       "date": "2026-04-24",
       "Buy & Hold": 1.2279,
       "RandomForest": 1.6784,
-      "XGBoost": 1.0697,
+      "XGBoost": 1.1377,
       "LSTM": 0.7421
     },
     {
       "date": "2026-04-27",
       "Buy & Hold": 1.2077,
       "RandomForest": 1.6507,
-      "XGBoost": 1.0829,
+      "XGBoost": 1.1517,
       "LSTM": 0.7299
     },
     {
       "date": "2026-04-30",
       "Buy & Hold": 1.2375,
       "RandomForest": 1.6915,
-      "XGBoost": 1.1085,
+      "XGBoost": 1.179,
       "LSTM": 0.7479
     },
     {
       "date": "2026-05-03",
       "Buy & Hold": 1.2633,
       "RandomForest": 1.7268,
-      "XGBoost": 1.1316,
+      "XGBoost": 1.2036,
       "LSTM": 0.7635
     },
     {
       "date": "2026-05-06",
       "Buy & Hold": 1.2656,
       "RandomForest": 1.7299,
-      "XGBoost": 1.1337,
+      "XGBoost": 1.2058,
       "LSTM": 0.7649
     },
     {
       "date": "2026-05-09",
       "Buy & Hold": 1.3005,
       "RandomForest": 1.7776,
-      "XGBoost": 1.1649,
+      "XGBoost": 1.239,
       "LSTM": 0.786
     },
     {
       "date": "2026-05-12",
       "Buy & Hold": 1.2547,
       "RandomForest": 1.7149,
-      "XGBoost": 1.1239,
+      "XGBoost": 1.1953,
       "LSTM": 0.7583
     },
     {
       "date": "2026-05-15",
       "Buy & Hold": 1.2362,
       "RandomForest": 1.6897,
-      "XGBoost": 1.1074,
+      "XGBoost": 1.1778,
       "LSTM": 0.7471
     },
     {
       "date": "2026-05-18",
       "Buy & Hold": 1.2154,
       "RandomForest": 1.6613,
-      "XGBoost": 1.0887,
+      "XGBoost": 1.158,
       "LSTM": 0.7346
     },
     {
       "date": "2026-05-21",
       "Buy & Hold": 1.195,
       "RandomForest": 1.6333,
-      "XGBoost": 1.0704,
+      "XGBoost": 1.1385,
       "LSTM": 0.7222
     },
     {
       "date": "2026-05-24",
       "Buy & Hold": 1.2232,
       "RandomForest": 1.6719,
-      "XGBoost": 1.0957,
+      "XGBoost": 1.1653,
       "LSTM": 0.7392
     },
     {
       "date": "2026-05-27",
       "Buy & Hold": 1.1646,
       "RandomForest": 1.5918,
-      "XGBoost": 1.0432,
+      "XGBoost": 1.1095,
       "LSTM": 0.7038
     },
     {
       "date": "2026-05-30",
       "Buy & Hold": 1.1655,
       "RandomForest": 1.593,
-      "XGBoost": 1.044,
+      "XGBoost": 1.1104,
       "LSTM": 0.7044
     },
     {
       "date": "2026-06-02",
       "Buy & Hold": 1.0514,
       "RandomForest": 1.4371,
-      "XGBoost": 0.9418,
+      "XGBoost": 1.0017,
       "LSTM": 0.6354
     },
     {
       "date": "2026-06-05",
       "Buy & Hold": 0.9677,
       "RandomForest": 1.3227,
-      "XGBoost": 0.8668,
+      "XGBoost": 0.9219,
       "LSTM": 0.5848
     },
     {
       "date": "2026-06-08",
       "Buy & Hold": 0.9765,
       "RandomForest": 1.3347,
-      "XGBoost": 0.8965,
+      "XGBoost": 0.945,
       "LSTM": 0.5902
     },
     {
       "date": "2026-06-11",
       "Buy & Hold": 1.0058,
       "RandomForest": 1.3747,
-      "XGBoost": 0.9222,
+      "XGBoost": 0.972,
       "LSTM": 0.6079
     },
     {
       "date": "2026-06-14",
       "Buy & Hold": 1.0493,
       "RandomForest": 1.3734,
-      "XGBoost": 0.9331,
+      "XGBoost": 0.9835,
       "LSTM": 0.6341
     }
   ],
@@ -6442,10 +6442,10 @@
     },
     {
       "strategy": "XGBoost",
-      "total_return": -0.0669,
-      "sharpe": -0.115,
-      "max_drawdown": -0.3808,
-      "trades": 194
+      "total_return": -0.0165,
+      "sharpe": -0.028,
+      "max_drawdown": -0.4112,
+      "trades": 190
     },
     {
       "strategy": "LSTM",
