@@ -1,0 +1,6 @@
+model,accuracy,AUC,F1
+LogReg,0.496,0.4955,0.6318
+RandomForest,0.5167,0.4947,0.6228
+XGBoost,0.5024,0.515,0.525
+Majority,0.496,0.5,
+Persistence,0.4849,,

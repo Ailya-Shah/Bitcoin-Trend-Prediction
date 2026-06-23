@@ -1,0 +1,5 @@
+model,accuracy,AUC
+RandomForest,0.5167,0.4947
+XGBoost,0.5024,0.515
+LogReg,0.496,0.4955
+LSTM,0.4817,0.4882

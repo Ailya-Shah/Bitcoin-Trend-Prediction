@@ -1,0 +1,2 @@
+model,accuracy,AUC,F1
+LSTM,0.4817,0.4882,0.611

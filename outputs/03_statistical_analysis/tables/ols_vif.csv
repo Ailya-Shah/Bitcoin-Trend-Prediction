@@ -1,0 +1,6 @@
+feature,VIF
+const,2.95
+ret_lag1,1.0
+ret_lag2,1.01
+vol_5,1.0
+volch,1.0

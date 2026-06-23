@@ -1,0 +1,4 @@
+A,B,A_right_B_wrong,B_right_A_wrong,chi2,p,significant
+XGBoost,LSTM,143,130,0.5275,0.4677,False
+RandomForest,LSTM,106,84,2.3211,0.1276,False
+RandomForest,XGBoost,87,78,0.3879,0.5334,False

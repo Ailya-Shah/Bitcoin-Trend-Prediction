@@ -1,0 +1,6 @@
+,total_return,ann_return,sharpe,max_drawdown,win_rate,trades
+Buy & Hold,0.0479,0.0271,0.0612,-0.5117,0.496,1.0
+XGBoost long/flat,-0.0165,-0.0097,-0.0283,-0.4112,0.3778,190.0
+XGBoost long/short,-0.0788,-0.0476,-0.1073,-0.4174,0.4833,191.0
+RandomForest long/flat,0.3734,0.1841,0.4638,-0.3941,0.4594,96.0
+LSTM long/flat,-0.3667,-0.2651,-0.6644,-0.552,0.456,63.0

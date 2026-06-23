@@ -1,0 +1,4 @@
+test,stat,p
+Levene (equal var),20.5317,0.0
+One-way ANOVA,2.3431,0.0054
+Kruskal-Wallis,35.3064,0.0004
