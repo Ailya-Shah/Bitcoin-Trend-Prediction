@@ -8063,25 +8063,25 @@ Columns:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+<pre>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 3089 entries, 0 to 3088
 Data columns (total 12 columns):
  #   Column                        Non-Null Count  Dtype  
 ---  ------                        --------------  -----  
- 0   Open time                     3089 non-null   object 
+ 0   Open time                     3089 non-null   str    
  1   Open                          3089 non-null   float64
  2   High                          3089 non-null   float64
  3   Low                           3089 non-null   float64
  4   Close                         3089 non-null   float64
  5   Volume                        3089 non-null   float64
- 6   Close time                    3089 non-null   object 
+ 6   Close time                    3089 non-null   str    
  7   Quote asset volume            3089 non-null   float64
  8   Number of trades              3089 non-null   int64  
  9   Taker buy base asset volume   3089 non-null   float64
  10  Taker buy quote asset volume  3089 non-null   float64
  11  Ignore                        3089 non-null   int64  
-dtypes: float64(8), int64(2), object(2)
-memory usage: 289.7+ KB
+dtypes: float64(8), int64(2), str(2)
+memory usage: 289.7 KB
 </pre>
 </div>
 </div>
@@ -8432,13 +8432,13 @@ Columns:
 <td><code>Volume BTC</code></td>
 <td>✅*</td>
 <td><code>volume_btc</code></td>
-<td>BTC traded. <strong>\*but the values are buggy — fixed in step 4.</strong></td>
+<td>BTC traded. *<em>\<em>but the values are buggy — fixed in step 4.</em></em></td>
 </tr>
 <tr>
 <td><code>Volume USD</code></td>
 <td>✅*</td>
 <td><code>volume_usd</code></td>
-<td>USD traded. <strong>\*same bug.</strong></td>
+<td>USD traded. *<em>\<em>same bug.</em></em></td>
 </tr>
 </tbody>
 </table>
@@ -8997,7 +8997,13 @@ Range : 2014-11-28 -&gt; 2026-06-16
 Rows  : 4219
 Nulls : 0
 Missing days: 0 of 4219 calendar days
-OHLC-invalid rows: 0
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>OHLC-invalid rows: 0
 Median volume inconsistency: 0.0065  (closer to 0 is better)
 </pre>
 </div>
@@ -9047,7 +9053,13 @@ Median volume inconsistency: 0.0065  (closer to 0 is better)
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved -&gt; D:\Bitcoin-Trend-Prediction\data\processed\btc_usd_daily_2014_2026.csv
+<pre>Saved -&gt;</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre> D:\Bitcoin-Trend-Prediction\data\processed\btc_usd_daily_2014_2026.csv
 
 First rows:
       date   open   high    low  close  volume_btc  volume_usd        source

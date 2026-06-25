@@ -1,7 +1,6 @@
 # ============================================================
 #  Bitcoin Trend Prediction — Python dependencies
-#  (The dashboard's JS dependencies live in frontend/package.json,
-#   installed separately with `npm install`.)
+#  (Dashboard JS deps live in frontend/package.json -> `npm install`.)
 # ============================================================
 
 # ---- Core (needed everywhere) ----
@@ -15,13 +14,9 @@ scipy>=1.11
 statsmodels>=0.14          # ADF/KPSS, ACF/PACF, ARMA, Ljung-Box, ANOVA, OLS
 arch>=7.0                  # GARCH / GJR-GARCH / EGARCH family
 
-# ---- Classical ML (notebooks 06 & 09) ----
-scikit-learn>=1.4          # models, scaling, metrics, calibration
+# ---- Machine learning (notebooks 06, 07, 09) ----
+scikit-learn>=1.4          # classical models + the MLP neural-net benchmark + metrics
 xgboost>=2.0
-
-# ---- Deep learning (notebook 07) ----
-tensorflow-cpu>=2.16       # Keras LSTM. Lighter CPU build (what you installed).
-                           # Alternatives: `tensorflow` (full) or `torch` (PyTorch).
 
 # ---- Data acquisition (scripts/) ----
 requests>=2.31             # Binance price + Blockchain.com on-chain fetchers
@@ -31,3 +26,10 @@ jupyter>=1.0
 nbformat>=5.9
 nbconvert>=7.10
 ipykernel>=6.29
+
+# ---- OPTIONAL: real LSTM in notebook 07 ----
+# Not required — notebook 07 falls back to a scikit-learn MLP if these are absent,
+# so the whole pipeline runs without them. Install ONE only if you want the true
+# sequence model (large download):
+# tensorflow>=2.16          # Windows/Linux:  pip install tensorflow-cpu
+# torch>=2.2                # PyTorch alternative
