@@ -149,4 +149,4 @@ Python · pandas · NumPy · scipy · statsmodels · arch · scikit-learn · XGB
 
 ---
 
-_Built by **[Ailya Shah]** — [GitHub](https://github.com/Ailya-Shah) · [live dashboard](https://bitcoin-trend-predictions.vercel.app/)_
+_Built by **Ailya Shah** — [GitHub](https://github.com/Ailya-Shah) · [live dashboard](https://bitcoin-trend-predictions.vercel.app/)_
