@@ -30,6 +30,12 @@ The neural network **did not beat** the simple classical models — on a near-ra
 - **Cost-aware backtest.** Signals are turned into trades with a realistic 0.1% cost and compared against buy-and-hold — because accuracy is not profit.
 - **Reproducible.** One command runs all nine notebooks in order and regenerates every figure, table, HTML report, and the dashboard's data.
 
+## Project Architecture
+
+The diagram below illustrates the complete data pipeline, from data collection through model training, backtesting, and dashboard visualization.
+
+![Project Architecture](docs/diagrams/architecture.svg)
+
 ## Dashboard
 
 A React + Recharts dashboard presents the whole story — built deliberately around the honest verdict rather than a flashy fake number.
