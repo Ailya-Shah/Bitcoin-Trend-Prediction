@@ -1,4 +1,4 @@
 A,B,DM_stat,p,significant
-XGBoost,LSTM,0.2461,0.8056,False
-RandomForest,LSTM,-0.6752,0.4995,False
-RandomForest,XGBoost,-0.9145,0.3605,False
+XGBoost,Neural net (MLP),-0.9214,0.3568,False
+RandomForest,Neural net (MLP),-2.6254,0.0087,True
+RandomForest,XGBoost,-1.6143,0.1065,False

@@ -51,7 +51,7 @@ export default function App() {
             </button>
           ))}
         </nav>
-        <div className="foot">9-notebook pipeline<br/>raw → clean → stats →<br/>GARCH → ML → LSTM →<br/>backtest → verdict</div>
+        <div className="foot">9-notebook pipeline<br/>raw → clean → stats →<br/>GARCH → ML → neural net →<br/>backtest → verdict</div>
       </aside>
 
       <main className="main">
@@ -88,9 +88,9 @@ function Overview({ d }) {
         <h3>What this is</h3>
         <p className="cap">A reproducible research pipeline, not a price oracle.</p>
         <div className="report">
-          <p>The dashboard walks the same path as the analysis: clean a decade-plus of daily data, characterise it statistically (fat tails, volatility clustering), engineer features, then pit classical machine learning against a deep LSTM — and finally ask the only question that matters to an investor: does any of it beat buying and holding, after trading costs?</p>
+          <p>The dashboard walks the same path as the analysis: clean a decade-plus of daily data, characterise it statistically (fat tails, volatility clustering), engineer features, then pit classical machine learning against a neural network — and finally ask the only question that matters to an investor: does any of it beat buying and holding, after trading costs?</p>
         </div>
-        <div className="callout" style={{marginTop:14}}>The interesting result isn't a high accuracy — it's that a careful pipeline lands at <b>~52%</b>, an LSTM <b>fails to beat</b> a random forest, and most trading strategies <b>lose to costs</b>. That honesty is the contribution.</div>
+        <div className="callout" style={{marginTop:14}}>The interesting result isn't a high accuracy — it's that a careful pipeline lands at <b>~{(d.verdict.best_accuracy*100).toFixed(0)}%</b>, a neural network <b>fails to beat</b> the simple models, and most trading strategies <b>lose to costs</b>. That honesty is the contribution.</div>
       </div>
     </>
   )
@@ -181,11 +181,14 @@ function Returns({ d }) {
 
 function Models({ d }) {
   const data = d.models.map(m=>({ ...m, acc: +(m.accuracy*100).toFixed(1) }))
+  const accs = data.map(m=>m.acc)
+  const lo = Math.floor(Math.min(...accs, 50) - 1)   // floor below the lowest bar (and the 50% line)
+  const hi = Math.ceil(Math.max(...accs, 50) + 1)
   return (
     <>
       <div className="eyebrow">03 · Models</div>
       <h2 className="title">Classical vs deep — a fair fight</h2>
-      <p className="lead">Every model sees the same features and the same chronological test window. The bar to beat is the 50% coin flip. Nothing clears it by much — and the LSTM, the supposed star, finishes last.</p>
+      <p className="lead">Every model sees the same features and the same chronological test window. The bar to beat is the 50% coin flip. Nothing clears it by much — and the neural network, the supposed star, earns no edge over the simple models.</p>
       <div className="panel">
         <h3>Test-set directional accuracy</h3>
         <p className="cap">Reference line at 50% = a coin flip. Above it is signal; below is noise.</p>
@@ -194,9 +197,9 @@ function Models({ d }) {
             <BarChart data={data} margin={{left:6,right:10,top:10}}>
               <CartesianGrid stroke="#EEF0F3" vertical={false}/>
               <XAxis dataKey="model" tick={{fontSize:12,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <YAxis domain={[45,55]} width={40} tickFormatter={v=>v+'%'} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
+              <YAxis domain={[lo,hi]} width={40} tickFormatter={v=>v+'%'} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
               <Tooltip content={<Tip suffix="%"/>}/>
-              <ReferenceLine y={50} stroke={C.neg} strokeDasharray="4 4" label={{value:'coin flip',fontSize:11,fill:C.neg,position:'right'}}/>
+              <ReferenceLine y={50} stroke={C.neg} strokeDasharray="4 4" label={{value:'coin flip 50%',fontSize:11,fill:C.neg,position:'insideTopRight'}}/>
               <Bar dataKey="acc" name="accuracy" radius={[4,4,0,0]}>
                 {data.map((m,i)=>(<Cell key={i} fill={m.kind==='deep'?'#6B4FB0':C.accent}/>))}
               </Bar>
@@ -206,12 +209,12 @@ function Models({ d }) {
       </div>
       <div className="panel">
         <h3>Full comparison</h3>
-        <table><thead><tr><th>Model</th><th>Type</th><th>Accuracy</th><th>AUC</th></tr></thead><tbody>
+        <table><thead><tr><th>Model</th><th style={{textAlign:'left'}}>Type</th><th>Accuracy</th><th>AUC</th></tr></thead><tbody>
           {d.models.map((m,i)=>(<tr key={i} className={m.model===d.verdict.best_model?'hi':''}>
             <td>{m.model}</td><td style={{textAlign:'left'}}><span className={'tag '+m.kind}>{m.kind}</span></td>
             <td>{pct(m.accuracy)}</td><td>{m.auc.toFixed(3)}</td></tr>))}
         </tbody></table>
-        <div className="callout" style={{marginTop:14}}>The <b>LSTM did not beat</b> the random forest. On a near-random target, a deep network has no extra structure to exploit — it just costs more compute. "Simple beats complex" is the honest finding.</div>
+        <div className="callout" style={{marginTop:14}}>The <b>neural network did not beat</b> the simple models. On a near-random target, a deep network has no extra structure to exploit — it just costs more compute. "Simple beats complex" is the honest finding.</div>
       </div>
     </>
   )
@@ -219,7 +222,7 @@ function Models({ d }) {
 
 function Backtest({ d }) {
   const keys = (d.backtest_metrics||[]).map(m=>m.strategy)
-  const colors = { 'Buy & Hold':C.ink, 'RandomForest':C.accent, 'XGBoost':C.slate, 'LSTM':'#6B4FB0' }
+  const colorFor = k => k==='Buy & Hold'?C.ink : k==='RandomForest'?C.accent : k==='XGBoost'?C.slate : '#6B4FB0'
   return (
     <>
       <div className="eyebrow">04 · Backtest</div>
@@ -235,7 +238,7 @@ function Backtest({ d }) {
               <XAxis dataKey="date" tickFormatter={s=>s.slice(2,7)} minTickGap={50} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
               <YAxis width={40} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
               <Tooltip content={<Tip/>}/>
-              {keys.map(k=>(<Line key={k} dataKey={k} stroke={colors[k]||C.soft} strokeWidth={k==='Buy & Hold'?2:1.4} strokeDasharray={k==='Buy & Hold'?'5 4':''} dot={false}/>))}
+              {keys.map(k=>(<Line key={k} dataKey={k} stroke={colorFor(k)} strokeWidth={k==='Buy & Hold'?2:1.4} strokeDasharray={k==='Buy & Hold'?'5 4':''} dot={false}/>))}
             </LineChart>
           </ResponsiveContainer>
         </div>

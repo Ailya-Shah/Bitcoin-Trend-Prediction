@@ -74,18 +74,20 @@ data["garch"] = records(read_csv(OUT / "04_volatility_garch/tables/garch_compari
 
 # ---- model comparison (classical + LSTM) ----
 mm = read_csv(OUT / "06_classical_ml/tables/model_metrics.csv")
-lstm = read_csv(OUT / "07_deep_learning/tables/lstm_metrics.csv")
+deep = read_csv(OUT / "07_deep_learning/tables/deep_metrics.csv")
+deep_name = deep["model"].iloc[0] if deep is not None else "Neural net"
 models = []
 if mm is not None:
     for _, r in mm.iterrows():
         if r["model"] in ("LogReg", "RandomForest", "XGBoost"):
             models.append({"model": r["model"], "accuracy": round(float(r["accuracy"]), 4),
                            "auc": round(float(r["AUC"]), 4), "kind": "classical"})
-if lstm is not None:
-    r = lstm.iloc[0]
-    models.append({"model": "LSTM", "accuracy": round(float(r["accuracy"]), 4),
+if deep is not None:
+    r = deep.iloc[0]
+    models.append({"model": deep_name, "accuracy": round(float(r["accuracy"]), 4),
                    "auc": round(float(r["AUC"]), 4), "kind": "deep"})
 data["models"] = models
+data["deep_name"] = deep_name
 if models:
     best = max(models, key=lambda m: m["accuracy"])
     data["verdict"] = {"best_model": best["model"], "best_accuracy": best["accuracy"]}
@@ -97,14 +99,14 @@ feat = read_csv(D / "btc_features.csv", parse_dates=["date"])
 if clf is not None and feat is not None:
     bt = clf.merge(feat[["date", "target_return"]], on="date", how="left")
     if dl is not None:
-        bt = bt.merge(dl[["date", "pred_LSTM"]], on="date", how="left")
+        bt = bt.merge(dl[["date", "pred_deep"]], on="date", how="left")
     COST = 0.001
     r = bt["target_return"].values
     defs = {"Buy & Hold": np.ones(len(bt)),
             "RandomForest": bt["pred_RandomForest"].values,
             "XGBoost": bt["pred_XGBoost"].values}
-    if "pred_LSTM" in bt.columns:
-        defs["LSTM"] = bt["pred_LSTM"].values
+    if "pred_deep" in bt.columns:
+        defs[deep_name] = bt["pred_deep"].values
     curves = {}
     metrics = []
     for name, pos in defs.items():

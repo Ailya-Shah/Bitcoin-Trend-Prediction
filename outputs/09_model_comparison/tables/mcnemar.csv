@@ -1,4 +1,4 @@
 A,B,A_right_B_wrong,B_right_A_wrong,chi2,p,significant
-XGBoost,LSTM,143,130,0.5275,0.4677,False
-RandomForest,LSTM,106,84,2.3211,0.1276,False
-RandomForest,XGBoost,87,78,0.3879,0.5334,False
+XGBoost,Neural net (MLP),132,100,4.1422,0.0418,True
+RandomForest,Neural net (MLP),113,93,1.7524,0.1856,False
+RandomForest,XGBoost,49,61,1.1,0.2943,False
