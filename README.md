@@ -136,6 +136,7 @@ Deploy with `vercel --prod` from the `frontend/` folder (root directory `fronten
 | 07 | `deep_learning` | Neural-network benchmark (LSTM if a DL framework is installed, else MLP) |
 | 08 | `backtesting` | Cost-aware strategy evaluation vs buy-and-hold |
 | 09 | `model_comparison` | McNemar, Diebold-Mariano, calibration, auto-written report |
+| 10 | `walkforward` | Expanding-window walk-forward: per-fold accuracy + significance, multi-window cost-aware backtest |
 
 ## Data sources
 

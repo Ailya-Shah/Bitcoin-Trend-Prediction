@@ -1,0 +1,4 @@
+strategy,total_return,sharpe,max_drawdown,trades
+Buy & Hold,0.6485,0.1875,-0.7663,1
+XGBoost long/flat,0.3754,0.1236,-0.7776,233
+XGBoost vol-scaled,0.4201,0.1405,-0.7626,568

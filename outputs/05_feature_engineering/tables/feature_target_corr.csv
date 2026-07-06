@@ -14,6 +14,7 @@ vol_ratio,0.0171
 dow,0.017
 ret_std20,0.0165
 macd,0.0151
+garch_vol,0.0149
 ret_mean10,0.0149
 ret_std10,0.0148
 ret_mean5,0.0115

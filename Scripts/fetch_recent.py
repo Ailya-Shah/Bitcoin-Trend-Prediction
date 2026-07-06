@@ -1,6 +1,6 @@
 """
-fetch_recent.py
----------------
+scripts/fetch_recent.py
+-----------------------
 Fetches the newest *completed* daily BTC candles from Binance and appends them
 to the cleaned processed file, in the exact same 8-column schema:
 
@@ -8,21 +8,31 @@ to the cleaned processed file, in the exact same 8-column schema:
 
 Binance public market-data endpoints need NO API key.
 
-Run from the project root (BITCOIN-TREND-PROJECT/):
-    python fetch_recent.py
+Run from the project root:
+    python scripts/fetch_recent.py
 
-It reads data/processed/btc_usd_daily_2014_2026.csv, finds the last date,
-downloads everything newer (skipping today's still-forming candle), and
-writes the updated file back in place.
+It reads the canonical processed file (resolved via paths.py, so it works no
+matter which directory you launch it from), finds the last date, downloads
+everything newer (skipping today's still-forming candle), and writes the
+updated file back in place.
 """
 
-import os
+import sys
 import time
+from pathlib import Path
 
 import pandas as pd
 import requests
 
-PROCESSED = os.path.join("data", "processed", "btc_usd_daily_2014_2026.csv")
+# Resolve `import paths` from anywhere by climbing to the project root — the same
+# bootstrap the other scripts use, so the data path is never hardcoded.
+_p = Path(__file__).resolve().parent
+while not (_p / "paths.py").exists() and _p != _p.parent:
+    _p = _p.parent
+sys.path.insert(0, str(_p))
+import paths  # noqa: E402
+
+PROCESSED = paths.PROCESSED_FILE   # single source of truth, not a relative string
 
 SYMBOL = "BTCUSDT"
 INTERVAL = "1d"
@@ -72,7 +82,7 @@ def klines_to_df(raw: list) -> pd.DataFrame:
     return df[["date", "open", "high", "low", "close", "volume_btc", "volume_usd", "source"]]
 
 
-def update_processed(path: str = PROCESSED):
+def update_processed(path: Path = PROCESSED):
     existing = pd.read_csv(path, parse_dates=["date"])
     last_date = existing["date"].max()
     print(f"Existing data ends: {last_date.date()}  ({len(existing)} rows)")

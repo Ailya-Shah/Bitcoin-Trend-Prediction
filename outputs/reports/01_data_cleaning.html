@@ -7804,7 +7804,6 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h1 id="Cleaning-&amp;-merging-the-Bitcoin-price-data">Cleaning &amp; merging the Bitcoin price data<a class="anchor-link" href="#Cleaning-&amp;-merging-the-Bitcoin-price-data">¶</a></h1><p><strong>Project:</strong> BITCOIN-TREND-PROJECT
 <strong>Notebook goal:</strong> take the two messy raw CSVs I downloaded and turn them into one clean, continuous daily dataset I can actually train a model on.</p>
-<p>I'm writing this notebook as my "lab notebook" so future-me (and whoever grades this) can see <em>why</em> I did each step, not just <em>what</em> I did. The actual cleaning logic also lives in <code>clean_btc_data.py</code> in the project root — this notebook is the explained version.</p>
 <h2 id="The-short-story">The short story<a class="anchor-link" href="#The-short-story">¶</a></h2><p>I have <strong>two</strong> sources of Bitcoin daily prices:</p>
 <ol>
 <li><strong>CryptoDataDownload</strong> file — covers <strong>2014 → 2022</strong>. It's the only place I have the <em>early</em> history (2014–2017).</li>
@@ -8665,13 +8664,7 @@ Columns:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>A 2014 row:</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+<pre>A 2014 row:
 date          2014-11-28 00:00:00
 close                      376.28
 Volume BTC             3220878.18

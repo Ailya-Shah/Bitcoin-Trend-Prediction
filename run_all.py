@@ -38,6 +38,8 @@ NOTEBOOKS = [
     ("07_deep_learning",        "07_deep_learning.ipynb"),
     ("08_backtesting",          "08_backtesting.ipynb"),
     ("09_model_comparison",     "09_model_comparison.ipynb"),
+    ("10_walkforward",          "10_walkforward.ipynb"),
+
 ]
 
 

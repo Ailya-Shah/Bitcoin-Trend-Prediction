@@ -1,2 +1,2 @@
 model,accuracy,AUC,F1
-Neural net (MLP),0.4489,0.4639,0.5252
+Neural net (MLP),0.5018,0.5039,0.5502

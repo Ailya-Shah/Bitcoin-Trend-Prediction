@@ -3,7 +3,7 @@
 ## Headline
 On out-of-sample data (2024-12-15 to 2026-06-15), next-day direction is
 **near-random**, as the statistics predicted. Best classifier: 50.7%
-(XGBoost) versus a ~50% coin flip. No model reached an AUC meaningfully above 0.5.
+(RandomForest) versus a ~50% coin flip. No model reached an AUC meaningfully above 0.5.
 
 ## Do the model differences matter?
 - McNemar and Diebold-Mariano tests show the models are largely **not statistically
