@@ -66,6 +66,7 @@ bitcoin-trend-prediction/
 │   ├── 07_deep_learning.ipynb
 │   ├── 08_backtesting.ipynb
 │   └── 09_model_comparison.ipynb
+    └── 10_walkforward.ipynb
 ├── scripts/                  # utilities (run on demand)
 │   ├── fetch_recent.py       # append the newest daily candles (Binance)
 │   ├── fetch_onchain.py      # fetch on-chain metrics (Blockchain.com)
