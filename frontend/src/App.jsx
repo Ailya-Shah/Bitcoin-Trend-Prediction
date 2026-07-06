@@ -1,292 +1,479 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from "react";
 import {
-  ResponsiveContainer, LineChart, Line, AreaChart, Area, BarChart, Bar,
-  XAxis, YAxis, Tooltip, CartesianGrid, ReferenceLine, Cell
-} from 'recharts'
+  ResponsiveContainer, AreaChart, Area, LineChart, Line, BarChart, Bar,
+  XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, Cell,
+} from "recharts";
+import { Bitcoin, Activity, TrendingDown, CalendarDays, ShieldAlert, Zap } from "lucide-react";
 
-const C = { ink:'#15171C', accent:'#F7931A', neg:'#C1432E', pos:'#1F8A74', slate:'#3D5A80', line:'#D6DAE0', soft:'#5C636D' }
-const fmtYear = d => (d || '').slice(0, 4)
-const pct = x => (x * 100).toFixed(1) + '%'
+/* ============================================================================
+   Bitcoin Trend Prediction — Binance-themed dashboard
+   Drop-in for frontend/src/App.jsx (Vite + Recharts). No Tailwind needed.
+   It fetches /data/dashboard.json (built by scripts/export_frontend_data.py).
+   If that isn't reachable (e.g. this preview), it renders honest sample data.
+   ========================================================================== */
 
-const SECTIONS = [
-  ['Overview', 'overview'], ['The data', 'data'], ['Returns & risk', 'returns'],
-  ['Models', 'models'], ['Backtest', 'backtest'], ['Method & honesty', 'method'],
-]
+const T = {
+  bg: "#0B0E11", panel: "#181A20", card: "#1E2329", cardHi: "#20262E",
+  border: "#2B3139", grid: "#232A32",
+  text: "#EAECEF", dim: "#848E9C", faint: "#5E6673",
+  gold: "#FCD535", goldDeep: "#F0B90B",
+  up: "#0ECB81", down: "#F6465D",
+  blue: "#4C82FB", violet: "#9B7DFF",
+};
 
-function Tip({ active, payload, label, suffix='' }) {
-  if (!active || !payload?.length) return null
-  return (
-    <div style={{background:C.ink,color:'#fff',padding:'8px 11px',borderRadius:8,fontFamily:'IBM Plex Mono',fontSize:12}}>
-      <div style={{color:'#8b929c',marginBottom:3}}>{label}</div>
-      {payload.map((p,i)=>(<div key={i} style={{color:p.color||'#fff'}}>{p.name}: {typeof p.value==='number'?p.value.toLocaleString():p.value}{suffix}</div>))}
-    </div>
-  )
+/* ---------- formatting ---------- */
+const pct = (x, d = 1) => `${(x * 100).toFixed(d)}%`;
+const pctPts = (x, d = 1) => `${x >= 0 ? "" : ""}${x.toFixed(d)}%`;
+const signedPct = (x, d = 1) => `${x >= 0 ? "+" : ""}${(x * 100).toFixed(d)}%`;
+const usd = (n) =>
+  n >= 1000 ? `$${(n / 1000).toFixed(n >= 10000 ? 0 : 1)}k` : `$${n.toFixed(0)}`;
+const num = (n) => n.toLocaleString("en-US");
+
+/* ---------- seeded sample data (only used when live JSON is absent) ---------- */
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function samplePrice() {
+  const anchors = [
+    ["2014-09-15", 460], ["2015-01-15", 210], ["2015-08-01", 285], ["2016-06-01", 580],
+    ["2017-01-01", 970], ["2017-12-17", 19200], ["2018-12-15", 3250], ["2019-06-26", 12900],
+    ["2020-03-13", 4900], ["2020-12-31", 29000], ["2021-04-14", 63500], ["2021-07-20", 29800],
+    ["2021-11-10", 67500], ["2022-06-18", 18000], ["2022-11-21", 15600], ["2023-10-01", 27000],
+    ["2024-03-14", 73000], ["2024-08-05", 49000], ["2025-01-20", 102000], ["2025-06-01", 68000],
+    ["2026-06-30", 66000],
+  ].map(([d, p]) => [new Date(d).getTime(), p]);
+  const rnd = mulberry32(7);
+  const out = [];
+  const start = anchors[0][0], end = anchors[anchors.length - 1][0];
+  const week = 7 * 864e5;
+  for (let t = start; t <= end; t += week) {
+    let i = 0; while (i < anchors.length - 1 && anchors[i + 1][0] < t) i++;
+    const [t0, p0] = anchors[i], [t1, p1] = anchors[Math.min(i + 1, anchors.length - 1)];
+    const f = t1 === t0 ? 0 : (t - t0) / (t1 - t0);
+    const logP = Math.log(p0) + f * (Math.log(p1) - Math.log(p0));
+    const noise = (rnd() - 0.5) * 0.11;
+    out.push({ date: new Date(t).toISOString().slice(0, 10), close: Math.exp(logP + noise) });
+  }
+  return out;
+}
+function walk(seed, n, endMul, vol) {
+  const rnd = mulberry32(seed); let v = 1; const arr = [];
+  for (let i = 0; i < n; i++) {
+    const drift = Math.pow(endMul, 1 / n) - 1;
+    v *= 1 + drift + (rnd() - 0.5) * vol;
+    arr.push(v);
+  }
+  return arr;
+}
+function sampleEquity() {
+  const n = 130, day0 = new Date("2024-08-06").getTime();
+  const bh = walk(1, n, 1.62, 0.05), xgb = walk(2, n, 1.10, 0.035),
+    vs = walk(3, n, 1.21, 0.026), rf = walk(4, n, 0.94, 0.04), mlp = walk(5, n, 0.88, 0.045);
+  return Array.from({ length: n }, (_, i) => ({
+    date: new Date(day0 + i * 4 * 864e5).toISOString().slice(0, 10),
+    "Buy & Hold": +bh[i].toFixed(4), "XGBoost long/flat": +xgb[i].toFixed(4),
+    "XGBoost vol-scaled": +vs[i].toFixed(4), "RandomForest long/flat": +rf[i].toFixed(4),
+    "Neural net (MLP) long/flat": +mlp[i].toFixed(4),
+  }));
+}
+const SAMPLE = {
+  meta: { start: "2014-09-17", end: "2026-06-30", n_days: 4219,
+    sources: { binance: 3068, "early-history": 1151 } },
+  worst_drawdown: -83.4,
+  verdict: { best_model: "XGBoost", best_accuracy: 0.507 },
+  deep_name: "Neural net (MLP)",
+  models: [
+    { model: "XGBoost", accuracy: 0.507, auc: 0.510, kind: "classical" },
+    { model: "LogReg", accuracy: 0.485, auc: 0.515, kind: "classical" },
+    { model: "RandomForest", accuracy: 0.485, auc: 0.505, kind: "classical" },
+    { model: "Neural net (MLP)", accuracy: 0.449, auc: 0.464, kind: "deep" },
+  ],
+  backtest_metrics: [
+    { strategy: "Buy & Hold", total_return: 0.62, sharpe: 0.70, max_drawdown: -0.76, trades: 1 },
+    { strategy: "XGBoost long/flat", total_return: 0.10, sharpe: 0.31, max_drawdown: -0.55, trades: 128 },
+    { strategy: "XGBoost vol-scaled", total_return: 0.21, sharpe: 0.52, max_drawdown: -0.38, trades: 240 },
+    { strategy: "RandomForest long/flat", total_return: -0.06, sharpe: -0.12, max_drawdown: -0.58, trades: 96 },
+    { strategy: "Neural net (MLP) long/flat", total_return: -0.12, sharpe: -0.20, max_drawdown: -0.61, trades: 150 },
+  ],
+  beat_buyhold: [],
+  get price() { return samplePrice(); },
+  get equity() { return sampleEquity(); },
+};
+
+/* ---------- data hook ---------- */
+function useDashboard() {
+  const [data, setData] = useState(null);
+  const [live, setLive] = useState(false);
+  useEffect(() => {
+    let ok = true;
+    fetch("/data/dashboard.json")
+      .then((r) => { if (!r.ok) throw new Error("no live json"); return r.json(); })
+      .then((j) => { if (ok) { setData(j); setLive(true); } })
+      .catch(() => { if (ok) { setData(SAMPLE); setLive(false); } });
+    return () => { ok = false; };
+  }, []);
+  return { data, live };
 }
 
+/* ---------- shared bits ---------- */
+const upDown = (v) => (v >= 0 ? T.up : T.down);
+const EQ_COLORS = {
+  "Buy & Hold": T.dim, "XGBoost long/flat": T.gold, "XGBoost vol-scaled": T.up,
+  "RandomForest long/flat": T.blue, "Neural net (MLP) long/flat": T.violet,
+};
+
+function ChartTip({ active, payload, label, render }) {
+  if (!active || !payload || !payload.length) return null;
+  return (
+    <div style={{
+      background: "#12151A", border: `1px solid ${T.border}`, borderRadius: 8,
+      padding: "10px 12px", boxShadow: "0 8px 28px rgba(0,0,0,.55)", minWidth: 150,
+    }}>
+      <div style={{ color: T.dim, fontSize: 11, marginBottom: 6, letterSpacing: .3 }}>{label}</div>
+      {render(payload)}
+    </div>
+  );
+}
+const tipRow = (c, name, val) => (
+  <div key={name} style={{ display: "flex", justifyContent: "space-between", gap: 18, fontSize: 12.5, padding: "1px 0" }}>
+    <span style={{ color: T.dim }}><i style={{ display: "inline-block", width: 8, height: 8, borderRadius: 2, background: c, marginRight: 7 }} />{name}</span>
+    <span style={{ color: T.text, fontVariantNumeric: "tabular-nums", fontFamily: "var(--mono)" }}>{val}</span>
+  </div>
+);
+
+function Panel({ title, sub, right, children, style }) {
+  return (
+    <section className="bx-panel" style={style}>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 14, gap: 12, flexWrap: "wrap" }}>
+        <div>
+          <h2 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: T.text, letterSpacing: .2 }}>{title}</h2>
+          {sub && <p style={{ margin: "4px 0 0", fontSize: 12, color: T.dim }}>{sub}</p>}
+        </div>
+        {right}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+/* ============================== app ============================== */
 export default function App() {
-  const [d, setD] = useState(null)
-  const [tab, setTab] = useState('overview')
-  const [err, setErr] = useState(null)
+  const { data, live } = useDashboard();
 
-  useEffect(() => {
-    fetch(import.meta.env.BASE_URL + 'data/dashboard.json')
-      .then(r => r.json()).then(setD).catch(() => setErr(true))
-  }, [])
+  if (!data) return (
+    <div style={{ background: T.bg, minHeight: "100vh", color: T.dim, display: "grid", placeItems: "center", fontFamily: "var(--sans)" }}>
+      <Style /> loading market data…
+    </div>
+  );
 
-  if (err) return <div style={{padding:40,fontFamily:'IBM Plex Mono'}}>Could not load dashboard.json. Run <b>python scripts/export_frontend_data.py</b> first.</div>
-  if (!d) return <div style={{padding:40,fontFamily:'IBM Plex Mono',color:C.soft}}>Loading research…</div>
+  const models = data.models || [];
+  const best = data.verdict || {};
+  const bestAuc = models.length ? Math.max(...models.map((m) => m.auc || 0)) : 0.5;
+  const bt = data.backtest_metrics || [];
+  const beat = data.beat_buyhold || [];
+  const equityKeys = data.equity && data.equity.length
+    ? Object.keys(data.equity[0]).filter((k) => k !== "date") : [];
 
   return (
-    <div className="app">
-      <aside className="side">
-        <div className="brand">
-          <div className="tick">QUANTITATIVE RESEARCH</div>
-          <h1>Bitcoin Trend Prediction</h1>
-          <div className="sub">{d.meta.start} → {d.meta.end} · {d.meta.n_days.toLocaleString()} days</div>
-        </div>
-        <nav className="nav">
-          {SECTIONS.map(([label, id], i) => (
-            <button key={id} className={tab===id?'on':''} onClick={()=>{setTab(id);window.scrollTo(0,0)}}>
-              <span className="n">{String(i).padStart(2,'0')}</span>{label}
-            </button>
-          ))}
-        </nav>
-        <div className="foot">9-notebook pipeline<br/>raw → clean → stats →<br/>GARCH → ML → neural net →<br/>backtest → verdict</div>
-      </aside>
+    <div style={{ background: T.bg, minHeight: "100vh", color: T.text, fontFamily: "var(--sans)" }}>
+      <Style />
 
-      <main className="main">
-        {tab==='overview' && <Overview d={d} />}
-        {tab==='data' && <DataSection d={d} />}
-        {tab==='returns' && <Returns d={d} />}
-        {tab==='models' && <Models d={d} />}
-        {tab==='backtest' && <Backtest d={d} />}
-        {tab==='method' && <Method d={d} />}
+      {/* top bar + ticker */}
+      <header style={{ borderBottom: `1px solid ${T.border}`, background: "#0d1116", position: "sticky", top: 0, zIndex: 20 }}>
+        <div className="bx-wrap" style={{ display: "flex", alignItems: "center", gap: 14, padding: "13px 22px" }}>
+          <div style={{ display: "grid", placeItems: "center", width: 30, height: 30, borderRadius: 8, background: T.gold }}>
+            <Bitcoin size={19} color="#181A20" strokeWidth={2.4} />
+          </div>
+          <div style={{ fontWeight: 700, fontSize: 15.5, letterSpacing: .2 }}>
+            BTC<span style={{ color: T.gold }}>·</span>Trend
+            <span style={{ color: T.dim, fontWeight: 500, marginLeft: 8, fontSize: 13 }}>Prediction Research</span>
+          </div>
+          <span className="bx-badge" style={{ marginLeft: "auto" }}>
+            <i style={{ width: 6, height: 6, borderRadius: "50%", background: live ? T.up : T.gold, boxShadow: `0 0 8px ${live ? T.up : T.gold}` }} />
+            {live ? "live data" : "sample data"}
+          </span>
+        </div>
+        <TickerStrip data={data} bestAuc={bestAuc} />
+      </header>
+
+      <main className="bx-wrap" style={{ padding: "22px" }}>
+
+        {/* honest verdict — the signature strip */}
+        <div className="bx-verdict">
+          <div style={{ display: "grid", placeItems: "center", width: 38, height: 38, borderRadius: 9, background: "rgba(252,213,53,.12)", border: `1px solid rgba(252,213,53,.35)` }}>
+            <ShieldAlert size={20} color={T.gold} />
+          </div>
+          <div style={{ flex: 1, minWidth: 220 }}>
+            <div style={{ fontSize: 13.5, fontWeight: 600 }}>
+              Honest verdict — simple beats complex, and accuracy isn't profit.
+            </div>
+            <div style={{ fontSize: 12.5, color: T.dim, marginTop: 3 }}>
+              Best model <b style={{ color: T.text }}>{best.best_model}</b> reached{" "}
+              <b style={{ color: T.gold, fontFamily: "var(--mono)" }}>{best.best_accuracy ? pct(best.best_accuracy) : "—"}</b>{" "}
+              next-day directional accuracy — a hair above a 50% coin flip. No model cleared an AUC meaningfully over 0.5.
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 26, fontWeight: 700, color: T.gold, fontFamily: "var(--mono)", lineHeight: 1 }}>
+              {best.best_accuracy ? pct(best.best_accuracy) : "—"}
+            </div>
+            <div style={{ fontSize: 11, color: T.dim, marginTop: 4 }}>vs 50.0% baseline</div>
+          </div>
+        </div>
+
+        {/* stat cards */}
+        <div className="bx-stats">
+          <Stat icon={<Zap size={15} />} label="Best next-day accuracy"
+            value={best.best_accuracy ? pct(best.best_accuracy) : "—"}
+            tone={best.best_accuracy > 0.5 ? T.up : T.down}
+            note={`${best.best_model || "—"} · +${best.best_accuracy ? ((best.best_accuracy - 0.5) * 100).toFixed(1) : "0"}pp edge`} />
+          <Stat icon={<Activity size={15} />} label="Best AUC" value={bestAuc.toFixed(3)}
+            tone={bestAuc > 0.5 ? T.up : T.down} note="0.5 = no discrimination" />
+          <Stat icon={<TrendingDown size={15} />} label="Worst drawdown"
+            value={data.worst_drawdown != null ? `${data.worst_drawdown.toFixed(1)}%` : "—"}
+            tone={T.down} note="peak-to-trough, full history" />
+          <Stat icon={<CalendarDays size={15} />} label="Data span"
+            value={data.meta ? num(data.meta.n_days) : "—"} tone={T.text}
+            note={data.meta ? `${data.meta.start} → ${data.meta.end}` : ""} />
+        </div>
+
+        {/* price */}
+        <Panel title="BTC / USD" sub="Daily close, log scale — every era readable"
+          right={<span className="bx-chip" style={{ color: T.gold, borderColor: "rgba(252,213,53,.3)" }}>log axis</span>}>
+          <PriceChart price={data.price || []} />
+        </Panel>
+
+        {/* models + equity */}
+        <div className="bx-two">
+          <Panel title="Models vs the coin flip" sub="Directional accuracy and AUC on the held-out test set">
+            <ModelChart models={models} />
+          </Panel>
+          <Panel title="Backtest equity" sub="Growth of $1 on the test window, after 0.1% costs"
+            right={<span className="bx-chip" style={{ color: beat.length ? T.up : T.dim }}>
+              {beat.length ? `${beat.length} beat B&H` : "none beat B&H"}
+            </span>}>
+            <EquityChart equity={data.equity || []} keys={equityKeys} />
+          </Panel>
+        </div>
+
+        {/* metrics table */}
+        <Panel title="Strategy scoreboard" sub="Every signal turned into trades and charged real costs — measured against buy-and-hold.">
+          <MetricsTable rows={bt} />
+        </Panel>
+
+        <footer style={{ color: T.faint, fontSize: 12, textAlign: "center", padding: "26px 0 8px" }}>
+          Built by Ailya Shah · leakage-aware splits · honest baselines · cost-aware backtest
+        </footer>
       </main>
     </div>
-  )
+  );
 }
 
-function Overview({ d }) {
-  const yrs = ((d.meta.n_days)/365).toFixed(1)
+/* ---------- ticker strip ---------- */
+function TickerStrip({ data, bestAuc }) {
+  const items = [];
+  if (data.meta) items.push(["DAYS", num(data.meta.n_days), T.text]);
+  if (data.verdict) items.push(["BEST ACC", pct(data.verdict.best_accuracy), data.verdict.best_accuracy > 0.5 ? T.up : T.down]);
+  items.push(["BEST AUC", bestAuc.toFixed(3), bestAuc > 0.5 ? T.up : T.down]);
+  if (data.worst_drawdown != null) items.push(["MAX DD", `${data.worst_drawdown.toFixed(1)}%`, T.down]);
+  (data.models || []).forEach((m) =>
+    items.push([m.model.toUpperCase(), pct(m.accuracy), m.accuracy >= 0.5 ? T.up : T.down]));
+  (data.meta?.sources ? Object.entries(data.meta.sources) : []).forEach(([k, v]) =>
+    items.push([k.toUpperCase(), num(v), T.dim]));
+  const loop = [...items, ...items];
   return (
-    <>
-      <div className="hero">
-        <div className="eyebrow">The honest headline</div>
-        <div className="big">{(d.verdict.best_accuracy*100).toFixed(1)}<span className="unit">%</span></div>
-        <div className="label">best next-day directional accuracy · {d.verdict.best_model}</div>
-        <div style={{height:16}} />
-        <div className="verdicttag">≈ A COIN FLIP</div>
-        <p>Short-horizon Bitcoin direction is close to unpredictable — and this project is built to prove that honestly rather than fake a number. Every claim is tested against a baseline, the deep model is benchmarked fairly, and the trading edge is checked after costs.</p>
+    <div className="bx-ticker">
+      <div className="bx-ticker-track">
+        {loop.map(([k, v, c], i) => (
+          <span key={i} className="bx-ticker-item">
+            <span style={{ color: T.faint }}>{k}</span>
+            <span style={{ color: c, fontFamily: "var(--mono)", fontWeight: 600 }}>{v}</span>
+          </span>
+        ))}
       </div>
-      <div className="strip">
-        <Metric v={yrs+' yr'} k="continuous daily history" />
-        <Metric v={d.meta.n_days.toLocaleString()} k="trading days, zero gaps" />
-        <Metric v={d.worst_drawdown+'%'} k="worst drawdown (2018)" cls="neg" />
-        <Metric v={d.models.length} k="models benchmarked" cls="accent" />
-      </div>
-      <div className="panel">
-        <h3>What this is</h3>
-        <p className="cap">A reproducible research pipeline, not a price oracle.</p>
-        <div className="report">
-          <p>The dashboard walks the same path as the analysis: clean a decade-plus of daily data, characterise it statistically (fat tails, volatility clustering), engineer features, then pit classical machine learning against a neural network — and finally ask the only question that matters to an investor: does any of it beat buying and holding, after trading costs?</p>
-        </div>
-        <div className="callout" style={{marginTop:14}}>The interesting result isn't a high accuracy — it's that a careful pipeline lands at <b>~{(d.verdict.best_accuracy*100).toFixed(0)}%</b>, a neural network <b>fails to beat</b> the simple models, and most trading strategies <b>lose to costs</b>. That honesty is the contribution.</div>
-      </div>
-    </>
-  )
+    </div>
+  );
 }
 
-function DataSection({ d }) {
-  const src = d.meta.sources
+function Stat({ icon, label, value, note, tone }) {
   return (
-    <>
-      <div className="eyebrow">01 · The data</div>
-      <h2 className="title">A continuous decade of daily Bitcoin</h2>
-      <p className="lead">Two sources merged into one gap-free series: Binance for 2018 onward, a cleaned early-history feed for 2014–2017. Shown on a log axis — the only honest way to view an asset that grew ~180×.</p>
-      <div className="panel">
-        <h3>Close price (log scale)</h3>
-        <p className="cap">{src['early-history']?.toLocaleString()} early-history days + {src.binance?.toLocaleString()} Binance days.</p>
-        <div className="chart">
-          <ResponsiveContainer>
-            <LineChart data={d.price} margin={{left:6,right:10,top:6}}>
-              <CartesianGrid stroke="#EEF0F3" vertical={false}/>
-              <XAxis dataKey="date" tickFormatter={fmtYear} minTickGap={40} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <YAxis scale="log" domain={['auto','auto']} tickFormatter={v=>v>=1000?(v/1000)+'k':v} width={42} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <Tooltip content={<Tip/>}/>
-              <Line dataKey="close" name="USD" stroke={C.accent} strokeWidth={1.4} dot={false}/>
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+    <div className="bx-stat">
+      <div style={{ display: "flex", alignItems: "center", gap: 7, color: T.dim, fontSize: 11.5, letterSpacing: .3, textTransform: "uppercase" }}>
+        <span style={{ color: T.faint }}>{icon}</span>{label}
       </div>
-      <div className="panel">
-        <h3>Drawdown from all-time high</h3>
-        <p className="cap">How far underwater the asset was at each point — the bear markets are unmistakable.</p>
-        <div className="chart" style={{height:240}}>
-          <ResponsiveContainer>
-            <AreaChart data={d.drawdown} margin={{left:6,right:10,top:6}}>
-              <CartesianGrid stroke="#EEF0F3" vertical={false}/>
-              <XAxis dataKey="date" tickFormatter={fmtYear} minTickGap={40} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <YAxis width={42} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}} tickFormatter={v=>v+'%'}/>
-              <Tooltip content={<Tip suffix="%"/>}/>
-              <Area dataKey="dd" name="drawdown" stroke={C.neg} fill="#C1432E22" strokeWidth={1.2}/>
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-    </>
-  )
+      <div style={{ fontSize: 27, fontWeight: 700, color: tone, fontFamily: "var(--mono)", marginTop: 9, lineHeight: 1 }}>{value}</div>
+      <div style={{ fontSize: 11.5, color: T.faint, marginTop: 8 }}>{note}</div>
+    </div>
+  );
 }
 
-function Returns({ d }) {
-  const rs = d.returns_summary || {}
+/* ---------- charts ---------- */
+function PriceChart({ price }) {
+  const data = useMemo(() => price.map((d) => ({ ...d })), [price]);
   return (
-    <>
-      <div className="eyebrow">02 · Returns & risk</div>
-      <h2 className="title">Fat tails and volatility that clusters</h2>
-      <p className="lead">Daily returns are nothing like a bell curve — extreme days dominate, and calm and wild periods bunch together. This is what makes volatility (not direction) the modellable part.</p>
-      <div className="strip">
-        <Metric v={(rs['annualised vol']*100).toFixed(0)+'%'} k="annualised volatility" cls="accent"/>
-        <Metric v={rs['excess kurtosis']?.toFixed(1)} k="excess kurtosis (0 = normal)" />
-        <Metric v={rs['skew']?.toFixed(2)} k="skew (crashes sharper)" cls="neg"/>
-        <Metric v={(rs['min day']*100).toFixed(0)+'%'} k="worst single day" cls="neg"/>
-      </div>
-      <div className="grid2">
-        <div className="panel">
-          <h3>Distribution fit</h3>
-          <p className="cap">Lower AIC = better. Fat-tailed distributions crush the Normal.</p>
-          <table><thead><tr><th>Distribution</th><th>AIC</th></tr></thead><tbody>
-            {(d.dist_table||[]).map((r,i)=>(<tr key={i} className={i===0?'hi':''}><td>{r.dist}{i===0?' ★':''}</td><td>{Math.round(r.AIC).toLocaleString()}</td></tr>))}
-          </tbody></table>
-        </div>
-        <div className="panel">
-          <h3>Stationarity (ADF + KPSS)</h3>
-          <p className="cap">Two tests, opposite nulls — they agree.</p>
-          <table><thead><tr><th>Series</th><th>ADF says</th><th>KPSS says</th></tr></thead><tbody>
-            {(d.distribution_fit||[]).map((r,i)=>(<tr key={i}><td>{r.series}</td><td>{r.ADF_says}</td><td>{r.KPSS_says}</td></tr>))}
-          </tbody></table>
-          <div className="callout" style={{marginTop:14}}>Price is non-stationary; returns are stationary. So every model works on <b>returns</b>, never raw price.</div>
-        </div>
-      </div>
-      {d.garch?.length>0 && (
-        <div className="panel">
-          <h3>GARCH volatility models</h3>
-          <p className="cap">Volatility clustering justified fitting the GARCH family. Lower AIC = better fit.</p>
-          <table><thead><tr><th>Model</th>{Object.keys(d.garch[0]).filter(k=>k!=='model'&&k!==Object.keys(d.garch[0])[0]).slice(0,3).map(k=>(<th key={k}>{k}</th>))}</tr></thead>
-          <tbody>{d.garch.map((r,i)=>{const ks=Object.keys(r);return(<tr key={i}><td>{r[ks[0]]}</td>{ks.slice(1,4).map(k=>(<td key={k}>{typeof r[k]==='number'?r[k].toFixed(1):r[k]}</td>))}</tr>)})}</tbody></table>
-        </div>
-      )}
-    </>
-  )
+    <ResponsiveContainer width="100%" height={300}>
+      <AreaChart data={data} margin={{ top: 6, right: 10, left: 4, bottom: 0 }}>
+        <defs>
+          <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={T.gold} stopOpacity={0.35} />
+            <stop offset="100%" stopColor={T.gold} stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid stroke={T.grid} strokeDasharray="0" vertical={false} />
+        <XAxis dataKey="date" tick={{ fill: T.faint, fontSize: 11 }} tickLine={false} axisLine={{ stroke: T.border }}
+          minTickGap={60} tickFormatter={(d) => d.slice(0, 4)} />
+        <YAxis scale="log" domain={[100, "auto"]} tick={{ fill: T.faint, fontSize: 11 }} tickLine={false}
+          axisLine={false} width={48} tickFormatter={usd} />
+        <Tooltip content={<ChartTip render={(p) => tipRow(T.gold, "close", `$${num(Math.round(p[0].value))}`)} />} />
+        <Area type="monotone" dataKey="close" stroke={T.gold} strokeWidth={1.6} fill="url(#gold)" />
+      </AreaChart>
+    </ResponsiveContainer>
+  );
 }
 
-function Models({ d }) {
-  const data = d.models.map(m=>({ ...m, acc: +(m.accuracy*100).toFixed(1) }))
-  const accs = data.map(m=>m.acc)
-  const lo = Math.floor(Math.min(...accs, 50) - 1)   // floor below the lowest bar (and the 50% line)
-  const hi = Math.ceil(Math.max(...accs, 50) + 1)
+function ModelChart({ models }) {
+  const data = models.map((m) => ({ name: m.model, accuracy: m.accuracy, auc: m.auc }));
+  const lo = Math.min(0.44, ...data.map((d) => Math.min(d.accuracy, d.auc))) - 0.01;
+  const hi = Math.max(0.53, ...data.map((d) => Math.max(d.accuracy, d.auc))) + 0.01;
   return (
-    <>
-      <div className="eyebrow">03 · Models</div>
-      <h2 className="title">Classical vs deep — a fair fight</h2>
-      <p className="lead">Every model sees the same features and the same chronological test window. The bar to beat is the 50% coin flip. Nothing clears it by much — and the neural network, the supposed star, earns no edge over the simple models.</p>
-      <div className="panel">
-        <h3>Test-set directional accuracy</h3>
-        <p className="cap">Reference line at 50% = a coin flip. Above it is signal; below is noise.</p>
-        <div className="chart" style={{height:300}}>
-          <ResponsiveContainer>
-            <BarChart data={data} margin={{left:6,right:10,top:10}}>
-              <CartesianGrid stroke="#EEF0F3" vertical={false}/>
-              <XAxis dataKey="model" tick={{fontSize:12,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <YAxis domain={[lo,hi]} width={40} tickFormatter={v=>v+'%'} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <Tooltip content={<Tip suffix="%"/>}/>
-              <ReferenceLine y={50} stroke={C.neg} strokeDasharray="4 4" label={{value:'coin flip 50%',fontSize:11,fill:C.neg,position:'insideTopRight'}}/>
-              <Bar dataKey="acc" name="accuracy" radius={[4,4,0,0]}>
-                {data.map((m,i)=>(<Cell key={i} fill={m.kind==='deep'?'#6B4FB0':C.accent}/>))}
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-      <div className="panel">
-        <h3>Full comparison</h3>
-        <table><thead><tr><th>Model</th><th style={{textAlign:'left'}}>Type</th><th>Accuracy</th><th>AUC</th></tr></thead><tbody>
-          {d.models.map((m,i)=>(<tr key={i} className={m.model===d.verdict.best_model?'hi':''}>
-            <td>{m.model}</td><td style={{textAlign:'left'}}><span className={'tag '+m.kind}>{m.kind}</span></td>
-            <td>{pct(m.accuracy)}</td><td>{m.auc.toFixed(3)}</td></tr>))}
-        </tbody></table>
-        <div className="callout" style={{marginTop:14}}>The <b>neural network did not beat</b> the simple models. On a near-random target, a deep network has no extra structure to exploit — it just costs more compute. "Simple beats complex" is the honest finding.</div>
-      </div>
-    </>
-  )
+    <ResponsiveContainer width="100%" height={300}>
+      <BarChart data={data} margin={{ top: 10, right: 8, left: 0, bottom: 0 }} barGap={4}>
+        <CartesianGrid stroke={T.grid} vertical={false} />
+        <XAxis dataKey="name" tick={{ fill: T.dim, fontSize: 11 }} tickLine={false} axisLine={{ stroke: T.border }} interval={0} />
+        <YAxis domain={[lo, hi]} tick={{ fill: T.faint, fontSize: 11 }} tickLine={false} axisLine={false}
+          width={44} tickFormatter={(v) => `${(v * 100).toFixed(0)}%`} />
+        <Tooltip cursor={{ fill: "rgba(255,255,255,.03)" }}
+          content={<ChartTip render={(p) => (<>
+            {tipRow(upDown(p[0].value - 0.5), "accuracy", pct(p[0].value))}
+            {p[1] && tipRow(T.goldDeep, "AUC", p[1].value.toFixed(3))}
+          </>)} />} />
+        <ReferenceLine y={0.5} stroke={T.gold} strokeDasharray="5 4" strokeOpacity={0.8}
+          label={{ value: "coin flip 50%", fill: T.gold, fontSize: 10, position: "insideTopRight" }} />
+        <Bar dataKey="accuracy" radius={[3, 3, 0, 0]} maxBarSize={34}>
+          {data.map((d, i) => <Cell key={i} fill={d.accuracy >= 0.5 ? T.up : T.down} />)}
+        </Bar>
+        <Bar dataKey="auc" radius={[3, 3, 0, 0]} maxBarSize={34} fill="#3a4553" fillOpacity={0.85} />
+      </BarChart>
+    </ResponsiveContainer>
+  );
 }
 
-function Backtest({ d }) {
-  const keys = (d.backtest_metrics||[]).map(m=>m.strategy)
-  const colorFor = k => k==='Buy & Hold'?C.ink : k==='RandomForest'?C.accent : k==='XGBoost'?C.slate : '#6B4FB0'
+function EquityChart({ equity, keys }) {
   return (
-    <>
-      <div className="eyebrow">04 · Backtest</div>
-      <h2 className="title">Accuracy is not profit</h2>
-      <p className="lead">Turning signals into trades and charging a realistic 0.1% per trade. This is where most "predicts crypto!" projects quietly fall apart — a 51% model that trades daily bleeds out on costs.</p>
-      <div className="panel">
-        <h3>Equity curves on the test period</h3>
-        <p className="cap">Growth of $1, after costs. Buy &amp; Hold is the line to beat.</p>
-        <div className="chart">
-          <ResponsiveContainer>
-            <LineChart data={d.equity} margin={{left:6,right:10,top:6}}>
-              <CartesianGrid stroke="#EEF0F3" vertical={false}/>
-              <XAxis dataKey="date" tickFormatter={s=>s.slice(2,7)} minTickGap={50} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <YAxis width={40} tick={{fontSize:11,fontFamily:'IBM Plex Mono',fill:C.soft}}/>
-              <Tooltip content={<Tip/>}/>
-              {keys.map(k=>(<Line key={k} dataKey={k} stroke={colorFor(k)} strokeWidth={k==='Buy & Hold'?2:1.4} strokeDasharray={k==='Buy & Hold'?'5 4':''} dot={false}/>))}
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-      <div className="panel">
-        <h3>Strategy metrics</h3>
-        <table><thead><tr><th>Strategy</th><th>Total return</th><th>Sharpe</th><th>Max DD</th><th>Trades</th></tr></thead><tbody>
-          {d.backtest_metrics.map((m,i)=>(<tr key={i} className={d.beat_buyhold?.includes(m.strategy)?'hi':''}>
-            <td>{m.strategy}</td><td style={{color:m.total_return<0?C.neg:C.pos}}>{(m.total_return*100).toFixed(1)}%</td>
-            <td>{m.sharpe}</td><td style={{color:C.neg}}>{(m.max_drawdown*100).toFixed(0)}%</td><td>{m.trades}</td></tr>))}
-        </tbody></table>
-        <div className="callout" style={{marginTop:14}}>
-          {d.beat_buyhold?.length
-            ? <>Only <b>{d.beat_buyhold.join(', ')}</b> beat buy-and-hold on this window — but with one test period and a sub-50% win rate, that's <b>suggestive, not proven</b>. It needs multi-window walk-forward validation before anyone should believe it.</>
-            : <>No strategy beat buy-and-hold after costs — the honest, common outcome.</>}
-        </div>
-      </div>
-    </>
-  )
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart data={equity} margin={{ top: 6, right: 10, left: 0, bottom: 0 }}>
+        <CartesianGrid stroke={T.grid} vertical={false} />
+        <XAxis dataKey="date" tick={{ fill: T.faint, fontSize: 11 }} tickLine={false} axisLine={{ stroke: T.border }}
+          minTickGap={50} tickFormatter={(d) => d.slice(2, 7)} />
+        <YAxis tick={{ fill: T.faint, fontSize: 11 }} tickLine={false} axisLine={false} width={40}
+          tickFormatter={(v) => `${v.toFixed(1)}×`} />
+        <ReferenceLine y={1} stroke={T.border} />
+        <Tooltip content={<ChartTip render={(p) =>
+          p.sort((a, b) => b.value - a.value).map((s) =>
+            tipRow(EQ_COLORS[s.name] || T.dim, s.name.replace(" long/flat", ""), `${s.value.toFixed(2)}×`))} />} />
+        {keys.map((k) => (
+          <Line key={k} type="monotone" dataKey={k} dot={false}
+            stroke={EQ_COLORS[k] || T.dim} strokeWidth={k === "Buy & Hold" ? 1.4 : 1.8}
+            strokeDasharray={k === "Buy & Hold" ? "5 4" : "0"} />
+        ))}
+      </LineChart>
+    </ResponsiveContainer>
+  );
 }
 
-function Method({ d }) {
+function MetricsTable({ rows }) {
+  const cols = [
+    ["strategy", "Strategy", "left"],
+    ["total_return", "Total return", "right"],
+    ["sharpe", "Sharpe", "right"],
+    ["max_drawdown", "Max drawdown", "right"],
+    ["trades", "Trades", "right"],
+  ];
   return (
-    <>
-      <div className="eyebrow">05 · Method & honesty</div>
-      <h2 className="title">How it was built — and its limits</h2>
-      <p className="lead">The auto-generated verdict from the final notebook, plus the principles that keep the whole thing honest.</p>
-      <div className="panel report"><Markdown text={d.report} /></div>
-      <div className="grid2">
-        <div className="panel"><h3>Reproducible</h3><p className="cap" style={{marginBottom:0}}>One command — <code style={{fontFamily:'IBM Plex Mono'}}>python run_all.py</code> — executes all nine notebooks in order and regenerates every figure, table, and this dashboard's data.</p></div>
-        <div className="panel"><h3>Leakage-aware</h3><p className="cap" style={{marginBottom:0}}>All splits are chronological. Scalers fit on train only. Targets are strictly next-day. No shuffling of time-series data — the bug that fakes 99% accuracy.</p></div>
-      </div>
-    </>
-  )
+    <div style={{ overflowX: "auto" }}>
+      <table className="bx-table">
+        <thead>
+          <tr>{cols.map(([k, lbl, al]) => <th key={k} style={{ textAlign: al }}>{lbl}</th>)}</tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => {
+            const bh = r.strategy === "Buy & Hold";
+            return (
+              <tr key={r.strategy} style={bh ? { background: "rgba(252,213,53,.05)" } : undefined}>
+                <td>
+                  <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: 2, marginRight: 9,
+                    background: EQ_COLORS[r.strategy] || T.dim }} />
+                  {r.strategy.replace(" long/flat", "")}
+                  {bh && <span className="bx-chip" style={{ marginLeft: 8, color: T.gold, borderColor: "rgba(252,213,53,.3)" }}>benchmark</span>}
+                </td>
+                <td className="mono" style={{ textAlign: "right", color: upDown(r.total_return), fontWeight: 600 }}>{signedPct(r.total_return)}</td>
+                <td className="mono" style={{ textAlign: "right", color: upDown(r.sharpe) }}>{r.sharpe?.toFixed(2)}</td>
+                <td className="mono" style={{ textAlign: "right", color: T.down }}>{signedPct(r.max_drawdown)}</td>
+                <td className="mono" style={{ textAlign: "right", color: T.dim }}>{num(r.trades)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-function Metric({ v, k, cls='' }) {
-  return <div className={'metric '+cls}><div className="v">{v}</div><div className="k">{k}</div></div>
-}
+/* ---------- styles ---------- */
+function Style() {
+  return (
+    <style>{`
+      :root{
+        --sans:"IBM Plex Sans","Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      }
+      *{box-sizing:border-box;}
+      body{margin:0;background:${T.bg};}
+      .bx-wrap{max-width:1180px;margin:0 auto;width:100%;}
+      .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
 
-function Markdown({ text }) {
-  const lines = (text||'').split('\n')
-  const out = []
-  lines.forEach((ln, i) => {
-    if (ln.startsWith('## ')) out.push(<h4 key={i}>{ln.slice(3)}</h4>)
-    else if (ln.startsWith('# ')) out.push(<h4 key={i} style={{fontSize:18}}>{ln.slice(2)}</h4>)
-    else if (ln.startsWith('- ')) out.push(<li key={i}>{ln.slice(2)}</li>)
-    else if (ln.trim()) out.push(<p key={i}>{ln}</p>)
-  })
-  return <>{out}</>
+      .bx-badge{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:${T.dim};
+        border:1px solid ${T.border};background:${T.card};padding:5px 10px;border-radius:20px;}
+      .bx-chip{font-size:10.5px;letter-spacing:.4px;text-transform:uppercase;color:${T.dim};
+        border:1px solid ${T.border};padding:3px 8px;border-radius:5px;background:rgba(255,255,255,.02);}
+
+      .bx-ticker{border-top:1px solid ${T.border};overflow:hidden;background:#0b0e12;}
+      .bx-ticker-track{display:inline-flex;gap:34px;white-space:nowrap;padding:8px 22px;
+        animation:bx-scroll 46s linear infinite;}
+      .bx-ticker:hover .bx-ticker-track{animation-play-state:paused;}
+      .bx-ticker-item{display:inline-flex;gap:8px;font-size:12px;align-items:center;}
+      @keyframes bx-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+      .bx-verdict{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+        background:linear-gradient(90deg,rgba(252,213,53,.06),rgba(252,213,53,.01));
+        border:1px solid rgba(252,213,53,.22);border-left:3px solid ${T.gold};
+        border-radius:12px;padding:16px 18px;margin-bottom:20px;}
+
+      .bx-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:20px;}
+      .bx-stat{background:${T.card};border:1px solid ${T.border};border-radius:12px;padding:16px 18px;
+        transition:border-color .18s,transform .18s;}
+      .bx-stat:hover{border-color:${T.faint};transform:translateY(-2px);}
+
+      .bx-panel{background:${T.panel};border:1px solid ${T.border};border-radius:14px;padding:18px 18px 12px;margin-bottom:20px;}
+      .bx-two{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+      @media(max-width:880px){.bx-two{grid-template-columns:1fr;}}
+
+      .bx-table{width:100%;border-collapse:collapse;font-size:13px;}
+      .bx-table th{color:${T.dim};font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.4px;
+        padding:0 14px 11px;border-bottom:1px solid ${T.border};white-space:nowrap;}
+      .bx-table td{padding:13px 14px;border-bottom:1px solid ${T.grid};color:${T.text};white-space:nowrap;}
+      .bx-table tbody tr:hover{background:rgba(255,255,255,.02);}
+      .bx-table tbody tr:last-child td{border-bottom:none;}
+
+      ::-webkit-scrollbar{height:8px;width:8px;}
+      ::-webkit-scrollbar-thumb{background:${T.border};border-radius:8px;}
+      ::-webkit-scrollbar-track{background:transparent;}
+      @media(prefers-reduced-motion:reduce){.bx-ticker-track{animation:none;}}
+    `}</style>
+  );
 }
