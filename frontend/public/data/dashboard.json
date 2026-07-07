@@ -1,10 +1,10 @@
 {
   "meta": {
     "start": "2014-11-28",
-    "end": "2026-07-05",
-    "n_days": 4238,
+    "end": "2026-06-16",
+    "n_days": 4219,
     "sources": {
-      "binance": 3108,
+      "binance": 3089,
       "early-history": 1130
     }
   },
@@ -2420,18 +2420,6 @@
     {
       "date": "2026-06-12",
       "close": 63580.01
-    },
-    {
-      "date": "2026-06-19",
-      "close": 63543.91
-    },
-    {
-      "date": "2026-06-26",
-      "close": 60097.27
-    },
-    {
-      "date": "2026-07-03",
-      "close": 62583.26
     }
   ],
   "drawdown": [
@@ -4846,18 +4834,6 @@
     {
       "date": "2026-06-12",
       "dd": -49.16
-    },
-    {
-      "date": "2026-06-19",
-      "dd": -49.18
-    },
-    {
-      "date": "2026-06-26",
-      "dd": -51.94
-    },
-    {
-      "date": "2026-07-03",
-      "dd": -49.95
     }
   ],
   "worst_drawdown": -83.3,
@@ -4950,32 +4926,32 @@
   "models": [
     {
       "model": "LogReg",
-      "accuracy": 0.4854,
-      "auc": 0.515,
+      "accuracy": 0.4909,
+      "auc": 0.5155,
       "kind": "classical"
     },
     {
       "model": "RandomForest",
-      "accuracy": 0.4854,
-      "auc": 0.5053,
+      "accuracy": 0.5073,
+      "auc": 0.5163,
       "kind": "classical"
     },
     {
       "model": "XGBoost",
-      "accuracy": 0.5073,
-      "auc": 0.5099,
+      "accuracy": 0.4872,
+      "auc": 0.5107,
       "kind": "classical"
     },
     {
       "model": "Neural net (MLP)",
-      "accuracy": 0.4489,
-      "auc": 0.4639,
+      "accuracy": 0.5018,
+      "auc": 0.5039,
       "kind": "deep"
     }
   ],
   "deep_name": "Neural net (MLP)",
   "verdict": {
-    "best_model": "XGBoost",
+    "best_model": "RandomForest",
     "best_accuracy": 0.5073
   },
   "equity": [
@@ -4990,1275 +4966,1275 @@
       "date": "2024-12-18",
       "Buy & Hold": 0.932,
       "RandomForest": 0.932,
-      "XGBoost": 0.9845,
-      "Neural net (MLP)": 0.9852
+      "XGBoost": 0.932,
+      "Neural net (MLP)": 1.0132
     },
     {
       "date": "2024-12-21",
       "Buy & Hold": 0.9103,
       "RandomForest": 0.9103,
-      "XGBoost": 0.9647,
-      "Neural net (MLP)": 0.9877
+      "XGBoost": 0.9103,
+      "Neural net (MLP)": 0.9903
     },
     {
       "date": "2024-12-24",
       "Buy & Hold": 0.9509,
-      "RandomForest": 0.9426,
-      "XGBoost": 0.9637,
-      "Neural net (MLP)": 1.0307
+      "RandomForest": 0.9437,
+      "XGBoost": 0.9509,
+      "Neural net (MLP)": 1.0255
     },
     {
       "date": "2024-12-27",
       "Buy & Hold": 0.9114,
-      "RandomForest": 0.9368,
-      "XGBoost": 0.9468,
-      "Neural net (MLP)": 1.0234
+      "RandomForest": 0.9379,
+      "XGBoost": 0.9114,
+      "Neural net (MLP)": 1.0075
     },
     {
       "date": "2024-12-30",
       "Buy & Hold": 0.8949,
-      "RandomForest": 0.9333,
-      "XGBoost": 0.9287,
-      "Neural net (MLP)": 1.0131
+      "RandomForest": 0.9345,
+      "XGBoost": 0.8949,
+      "Neural net (MLP)": 0.9963
     },
     {
       "date": "2025-01-02",
       "Buy & Hold": 0.9389,
-      "RandomForest": 0.9425,
-      "XGBoost": 0.9379,
-      "Neural net (MLP)": 1.0629
+      "RandomForest": 0.9437,
+      "XGBoost": 0.9389,
+      "Neural net (MLP)": 1.032
     },
     {
       "date": "2025-01-05",
       "Buy & Hold": 0.9777,
-      "RandomForest": 0.9801,
-      "XGBoost": 0.9379,
-      "Neural net (MLP)": 1.0618
+      "RandomForest": 0.9437,
+      "XGBoost": 0.9777,
+      "Neural net (MLP)": 1.033
     },
     {
       "date": "2025-01-08",
       "Buy & Hold": 0.8851,
-      "RandomForest": 0.8872,
-      "XGBoost": 0.8482,
-      "Neural net (MLP)": 0.9853
+      "RandomForest": 0.8534,
+      "XGBoost": 0.8851,
+      "Neural net (MLP)": 0.9342
     },
     {
       "date": "2025-01-11",
       "Buy & Hold": 0.9041,
-      "RandomForest": 0.9063,
-      "XGBoost": 0.8665,
-      "Neural net (MLP)": 1.0051
+      "RandomForest": 0.8714,
+      "XGBoost": 0.9041,
+      "Neural net (MLP)": 0.9543
     },
     {
       "date": "2025-01-14",
       "Buy & Hold": 0.9611,
-      "RandomForest": 0.9616,
-      "XGBoost": 0.8824,
-      "Neural net (MLP)": 1.0673
+      "RandomForest": 0.8883,
+      "XGBoost": 0.9611,
+      "Neural net (MLP)": 1.0144
     },
     {
       "date": "2025-01-17",
       "Buy & Hold": 0.9999,
-      "RandomForest": 1.0035,
-      "XGBoost": 0.8824,
-      "Neural net (MLP)": 1.0646
+      "RandomForest": 0.9233,
+      "XGBoost": 0.9999,
+      "Neural net (MLP)": 1.0554
     },
     {
       "date": "2025-01-20",
       "Buy & Hold": 1.0151,
-      "RandomForest": 1.0187,
-      "XGBoost": 0.8824,
-      "Neural net (MLP)": 1.0808
+      "RandomForest": 0.9269,
+      "XGBoost": 1.0151,
+      "Neural net (MLP)": 1.0933
     },
     {
       "date": "2025-01-23",
       "Buy & Hold": 1.0029,
-      "RandomForest": 1.0025,
-      "XGBoost": 0.8824,
-      "Neural net (MLP)": 1.0907
+      "RandomForest": 0.9122,
+      "XGBoost": 1.0029,
+      "Neural net (MLP)": 1.0759
     },
     {
       "date": "2025-01-26",
       "Buy & Hold": 0.9762,
-      "RandomForest": 0.9792,
-      "XGBoost": 0.8824,
-      "Neural net (MLP)": 1.0816
+      "RandomForest": 0.9113,
+      "XGBoost": 0.9762,
+      "Neural net (MLP)": 1.0509
     },
     {
       "date": "2025-01-29",
       "Buy & Hold": 1.0015,
-      "RandomForest": 1.0036,
-      "XGBoost": 0.8816,
-      "Neural net (MLP)": 1.0726
+      "RandomForest": 0.9105,
+      "XGBoost": 1.0015,
+      "Neural net (MLP)": 1.077
     },
     {
       "date": "2025-02-01",
       "Buy & Hold": 0.9343,
-      "RandomForest": 0.951,
-      "XGBoost": 0.8542,
-      "Neural net (MLP)": 1.047
+      "RandomForest": 0.8629,
+      "XGBoost": 0.9343,
+      "Neural net (MLP)": 1.0047
     },
     {
       "date": "2025-02-04",
       "Buy & Hold": 0.9239,
-      "RandomForest": 0.9405,
-      "XGBoost": 0.8447,
-      "Neural net (MLP)": 1.0456
+      "RandomForest": 0.8532,
+      "XGBoost": 0.9239,
+      "Neural net (MLP)": 0.9936
     },
     {
       "date": "2025-02-07",
       "Buy & Hold": 0.9223,
-      "RandomForest": 0.9388,
-      "XGBoost": 0.8432,
-      "Neural net (MLP)": 1.0427
+      "RandomForest": 0.8518,
+      "XGBoost": 0.9223,
+      "Neural net (MLP)": 0.9918
     },
     {
       "date": "2025-02-10",
       "Buy & Hold": 0.9159,
-      "RandomForest": 0.9475,
-      "XGBoost": 0.851,
-      "Neural net (MLP)": 1.0523
+      "RandomForest": 0.8596,
+      "XGBoost": 0.9159,
+      "Neural net (MLP)": 0.985
     },
     {
       "date": "2025-02-13",
       "Buy & Hold": 0.9324,
-      "RandomForest": 0.9475,
-      "XGBoost": 0.851,
-      "Neural net (MLP)": 1.0367
+      "RandomForest": 0.8596,
+      "XGBoost": 0.9324,
+      "Neural net (MLP)": 1.0027
     },
     {
       "date": "2025-02-16",
       "Buy & Hold": 0.916,
-      "RandomForest": 0.9315,
-      "XGBoost": 0.8346,
-      "Neural net (MLP)": 1.0192
+      "RandomForest": 0.8451,
+      "XGBoost": 0.916,
+      "Neural net (MLP)": 0.9875
     },
     {
       "date": "2025-02-19",
       "Buy & Hold": 0.9401,
-      "RandomForest": 0.938,
-      "XGBoost": 0.8412,
-      "Neural net (MLP)": 1.0275
+      "RandomForest": 0.8665,
+      "XGBoost": 0.9401,
+      "Neural net (MLP)": 1.0125
     },
     {
       "date": "2025-02-22",
       "Buy & Hold": 0.9205,
-      "RandomForest": 0.9378,
-      "XGBoost": 0.8378,
-      "Neural net (MLP)": 1.0051
+      "RandomForest": 0.8485,
+      "XGBoost": 0.9205,
+      "Neural net (MLP)": 0.9934
     },
     {
       "date": "2025-02-25",
       "Buy & Hold": 0.8057,
-      "RandomForest": 0.8208,
-      "XGBoost": 0.7333,
-      "Neural net (MLP)": 0.9231
+      "RandomForest": 0.7427,
+      "XGBoost": 0.8057,
+      "Neural net (MLP)": 0.9133
     },
     {
       "date": "2025-02-28",
       "Buy & Hold": 0.823,
-      "RandomForest": 0.8385,
-      "XGBoost": 0.7491,
-      "Neural net (MLP)": 0.943
+      "RandomForest": 0.7586,
+      "XGBoost": 0.823,
+      "Neural net (MLP)": 0.933
     },
     {
       "date": "2025-03-03",
       "Buy & Hold": 0.8347,
-      "RandomForest": 0.9279,
-      "XGBoost": 0.829,
-      "Neural net (MLP)": 0.9563
+      "RandomForest": 0.7694,
+      "XGBoost": 0.8347,
+      "Neural net (MLP)": 1.0324
     },
     {
       "date": "2025-03-06",
       "Buy & Hold": 0.8301,
-      "RandomForest": 0.9623,
-      "XGBoost": 0.8289,
-      "Neural net (MLP)": 0.9563
+      "RandomForest": 0.7979,
+      "XGBoost": 0.8301,
+      "Neural net (MLP)": 0.9871
     },
     {
       "date": "2025-03-09",
       "Buy & Hold": 0.7516,
-      "RandomForest": 0.9278,
-      "XGBoost": 0.8054,
-      "Neural net (MLP)": 0.8659
+      "RandomForest": 0.7692,
+      "XGBoost": 0.7516,
+      "Neural net (MLP)": 0.898
     },
     {
       "date": "2025-03-12",
       "Buy & Hold": 0.7757,
-      "RandomForest": 0.9575,
-      "XGBoost": 0.8312,
-      "Neural net (MLP)": 0.8936
+      "RandomForest": 0.7939,
+      "XGBoost": 0.7757,
+      "Neural net (MLP)": 0.9268
     },
     {
       "date": "2025-03-15",
       "Buy & Hold": 0.7897,
-      "RandomForest": 0.9687,
-      "XGBoost": 0.8634,
-      "Neural net (MLP)": 0.8947
+      "RandomForest": 0.8212,
+      "XGBoost": 0.7897,
+      "Neural net (MLP)": 0.9586
     },
     {
       "date": "2025-03-18",
       "Buy & Hold": 0.8305,
-      "RandomForest": 0.9677,
-      "XGBoost": 0.8916,
-      "Neural net (MLP)": 0.9085
+      "RandomForest": 0.8212,
+      "XGBoost": 0.8305,
+      "Neural net (MLP)": 0.9733
     },
     {
       "date": "2025-03-21",
       "Buy & Hold": 0.8018,
-      "RandomForest": 0.9677,
-      "XGBoost": 0.8858,
-      "Neural net (MLP)": 0.8793
+      "RandomForest": 0.8212,
+      "XGBoost": 0.8018,
+      "Neural net (MLP)": 0.9733
     },
     {
       "date": "2025-03-24",
       "Buy & Hold": 0.8357,
-      "RandomForest": 0.9677,
-      "XGBoost": 0.8849,
-      "Neural net (MLP)": 0.8918
+      "RandomForest": 0.8212,
+      "XGBoost": 0.8357,
+      "Neural net (MLP)": 0.9973
     },
     {
       "date": "2025-03-27",
       "Buy & Hold": 0.8074,
-      "RandomForest": 0.9677,
-      "XGBoost": 0.8849,
-      "Neural net (MLP)": 0.8613
+      "RandomForest": 0.8212,
+      "XGBoost": 0.8074,
+      "Neural net (MLP)": 0.9973
     },
     {
       "date": "2025-03-30",
       "Buy & Hold": 0.7894,
-      "RandomForest": 0.9656,
-      "XGBoost": 0.883,
-      "Neural net (MLP)": 0.8422
+      "RandomForest": 0.8194,
+      "XGBoost": 0.7894,
+      "Neural net (MLP)": 0.9922
     },
     {
       "date": "2025-04-02",
       "Buy & Hold": 0.7958,
-      "RandomForest": 0.9718,
-      "XGBoost": 0.8886,
-      "Neural net (MLP)": 0.8744
+      "RandomForest": 0.8246,
+      "XGBoost": 0.7958,
+      "Neural net (MLP)": 0.9686
     },
     {
       "date": "2025-04-05",
       "Buy & Hold": 0.75,
-      "RandomForest": 0.9708,
-      "XGBoost": 0.8877,
-      "Neural net (MLP)": 0.8681
+      "RandomForest": 0.8238,
+      "XGBoost": 0.75,
+      "Neural net (MLP)": 0.9149
     },
     {
       "date": "2025-04-08",
       "Buy & Hold": 0.7901,
-      "RandomForest": 1.0216,
-      "XGBoost": 0.9342,
-      "Neural net (MLP)": 0.9051
+      "RandomForest": 0.8669,
+      "XGBoost": 0.7901,
+      "Neural net (MLP)": 0.9637
     },
     {
       "date": "2025-04-11",
       "Buy & Hold": 0.8155,
-      "RandomForest": 1.0306,
-      "XGBoost": 0.976,
-      "Neural net (MLP)": 0.913
+      "RandomForest": 0.8745,
+      "XGBoost": 0.8155,
+      "Neural net (MLP)": 0.9948
     },
     {
       "date": "2025-04-14",
       "Buy & Hold": 0.7999,
-      "RandomForest": 1.0306,
-      "XGBoost": 0.976,
-      "Neural net (MLP)": 0.8947
+      "RandomForest": 0.8745,
+      "XGBoost": 0.7999,
+      "Neural net (MLP)": 0.9914
     },
     {
       "date": "2025-04-17",
       "Buy & Hold": 0.8078,
-      "RandomForest": 1.0306,
-      "XGBoost": 0.976,
-      "Neural net (MLP)": 0.8879
+      "RandomForest": 0.8745,
+      "XGBoost": 0.8078,
+      "Neural net (MLP)": 0.9904
     },
     {
       "date": "2025-04-20",
       "Buy & Hold": 0.8369,
-      "RandomForest": 1.0306,
-      "XGBoost": 0.976,
-      "Neural net (MLP)": 0.8863
+      "RandomForest": 0.8745,
+      "XGBoost": 0.8369,
+      "Neural net (MLP)": 0.9904
     },
     {
       "date": "2025-04-23",
       "Buy & Hold": 0.8987,
-      "RandomForest": 1.1056,
-      "XGBoost": 1.0471,
-      "Neural net (MLP)": 0.9469
+      "RandomForest": 0.9382,
+      "XGBoost": 0.8987,
+      "Neural net (MLP)": 0.9904
     },
     {
       "date": "2025-04-26",
       "Buy & Hold": 0.8965,
-      "RandomForest": 1.1029,
-      "XGBoost": 1.0425,
-      "Neural net (MLP)": 0.9419
+      "RandomForest": 0.9341,
+      "XGBoost": 0.8965,
+      "Neural net (MLP)": 0.9904
     },
     {
       "date": "2025-04-29",
       "Buy & Hold": 0.9006,
-      "RandomForest": 1.091,
-      "XGBoost": 1.0415,
-      "Neural net (MLP)": 0.9461
+      "RandomForest": 0.9332,
+      "XGBoost": 0.9006,
+      "Neural net (MLP)": 0.9904
     },
     {
       "date": "2025-05-02",
       "Buy & Hold": 0.9167,
-      "RandomForest": 1.1105,
-      "XGBoost": 1.0294,
-      "Neural net (MLP)": 0.938
+      "RandomForest": 0.9223,
+      "XGBoost": 0.9167,
+      "Neural net (MLP)": 1.017
     },
     {
       "date": "2025-05-05",
       "Buy & Hold": 0.926,
-      "RandomForest": 1.1218,
-      "XGBoost": 1.0399,
-      "Neural net (MLP)": 0.9412
+      "RandomForest": 0.9317,
+      "XGBoost": 0.926,
+      "Neural net (MLP)": 0.9982
     },
     {
       "date": "2025-05-08",
       "Buy & Hold": 0.9847,
-      "RandomForest": 1.1929,
-      "XGBoost": 1.041,
-      "Neural net (MLP)": 0.9968
+      "RandomForest": 0.9908,
+      "XGBoost": 0.9847,
+      "Neural net (MLP)": 1.0604
     },
     {
       "date": "2025-05-11",
       "Buy & Hold": 0.983,
-      "RandomForest": 1.1676,
-      "XGBoost": 1.0267,
-      "Neural net (MLP)": 0.995
+      "RandomForest": 0.9697,
+      "XGBoost": 0.983,
+      "Neural net (MLP)": 1.0712
     },
     {
       "date": "2025-05-14",
       "Buy & Hold": 0.9923,
-      "RandomForest": 1.1615,
-      "XGBoost": 1.0177,
-      "Neural net (MLP)": 1.0082
+      "RandomForest": 0.9789,
+      "XGBoost": 0.9923,
+      "Neural net (MLP)": 1.0629
     },
     {
       "date": "2025-05-17",
       "Buy & Hold": 1.018,
-      "RandomForest": 1.1916,
-      "XGBoost": 1.0495,
-      "Neural net (MLP)": 1.0043
+      "RandomForest": 1.0043,
+      "XGBoost": 1.018,
+      "Neural net (MLP)": 1.0961
     },
     {
       "date": "2025-05-20",
       "Buy & Hold": 1.0485,
-      "RandomForest": 1.2273,
-      "XGBoost": 1.081,
-      "Neural net (MLP)": 1.006
+      "RandomForest": 1.0344,
+      "XGBoost": 1.0485,
+      "Neural net (MLP)": 1.1361
     },
     {
       "date": "2025-05-23",
       "Buy & Hold": 1.0305,
-      "RandomForest": 1.2062,
-      "XGBoost": 1.0624,
-      "Neural net (MLP)": 0.9696
+      "RandomForest": 1.0166,
+      "XGBoost": 1.0305,
+      "Neural net (MLP)": 1.1598
     },
     {
       "date": "2025-05-26",
       "Buy & Hold": 1.0418,
-      "RandomForest": 1.2194,
-      "XGBoost": 1.0613,
-      "Neural net (MLP)": 0.9744
+      "RandomForest": 1.0277,
+      "XGBoost": 1.0418,
+      "Neural net (MLP)": 1.1655
     },
     {
       "date": "2025-05-29",
       "Buy & Hold": 0.9944,
-      "RandomForest": 1.1639,
-      "XGBoost": 1.0442,
-      "Neural net (MLP)": 0.9435
+      "RandomForest": 0.981,
+      "XGBoost": 0.9944,
+      "Neural net (MLP)": 1.1334
     },
     {
       "date": "2025-06-01",
       "Buy & Hold": 1.0123,
-      "RandomForest": 1.1849,
-      "XGBoost": 1.0515,
-      "Neural net (MLP)": 0.9445
+      "RandomForest": 0.9957,
+      "XGBoost": 1.0123,
+      "Neural net (MLP)": 1.1448
     },
     {
       "date": "2025-06-04",
       "Buy & Hold": 0.9707,
-      "RandomForest": 1.1362,
-      "XGBoost": 1.0073,
-      "Neural net (MLP)": 0.9435
+      "RandomForest": 0.9538,
+      "XGBoost": 0.9707,
+      "Neural net (MLP)": 1.0978
     },
     {
       "date": "2025-06-07",
       "Buy & Hold": 1.0111,
-      "RandomForest": 1.167,
-      "XGBoost": 1.0346,
-      "Neural net (MLP)": 0.9531
+      "RandomForest": 0.9908,
+      "XGBoost": 1.0111,
+      "Neural net (MLP)": 1.1275
     },
     {
       "date": "2025-06-10",
       "Buy & Hold": 1.039,
-      "RandomForest": 1.1991,
-      "XGBoost": 1.0173,
-      "Neural net (MLP)": 0.9381
+      "RandomForest": 0.9753,
+      "XGBoost": 1.039,
+      "Neural net (MLP)": 1.1087
     },
     {
       "date": "2025-06-13",
       "Buy & Hold": 1.0081,
-      "RandomForest": 1.1635,
-      "XGBoost": 0.987,
-      "Neural net (MLP)": 0.934
+      "RandomForest": 0.9463,
+      "XGBoost": 1.0081,
+      "Neural net (MLP)": 1.0758
     },
     {
       "date": "2025-06-16",
       "Buy & Hold": 0.9998,
-      "RandomForest": 1.1387,
-      "XGBoost": 0.986,
-      "Neural net (MLP)": 0.9125
+      "RandomForest": 0.9261,
+      "XGBoost": 0.9998,
+      "Neural net (MLP)": 1.0529
     },
     {
       "date": "2025-06-19",
       "Buy & Hold": 0.9878,
-      "RandomForest": 1.1251,
-      "XGBoost": 0.9701,
-      "Neural net (MLP)": 0.8969
+      "RandomForest": 0.915,
+      "XGBoost": 0.9878,
+      "Neural net (MLP)": 1.0404
     },
     {
       "date": "2025-06-22",
       "Buy & Hold": 1.0073,
-      "RandomForest": 1.1472,
-      "XGBoost": 0.9893,
-      "Neural net (MLP)": 0.9146
+      "RandomForest": 0.9331,
+      "XGBoost": 1.0073,
+      "Neural net (MLP)": 1.0609
     },
     {
       "date": "2025-06-25",
       "Buy & Hold": 1.0227,
-      "RandomForest": 1.1488,
-      "XGBoost": 0.9837,
-      "Neural net (MLP)": 0.9159
+      "RandomForest": 0.9344,
+      "XGBoost": 1.0227,
+      "Neural net (MLP)": 1.0772
     },
     {
       "date": "2025-06-28",
       "Buy & Hold": 1.0362,
-      "RandomForest": 1.164,
-      "XGBoost": 0.9966,
-      "Neural net (MLP)": 0.915
+      "RandomForest": 0.9467,
+      "XGBoost": 1.0362,
+      "Neural net (MLP)": 1.0882
     },
     {
       "date": "2025-07-01",
       "Buy & Hold": 1.0409,
-      "RandomForest": 1.1341,
-      "XGBoost": 0.9845,
-      "Neural net (MLP)": 0.8906
+      "RandomForest": 0.951,
+      "XGBoost": 1.0409,
+      "Neural net (MLP)": 1.1033
     },
     {
       "date": "2025-07-04",
       "Buy & Hold": 1.0334,
-      "RandomForest": 1.1248,
-      "XGBoost": 0.9764,
-      "Neural net (MLP)": 0.8818
+      "RandomForest": 0.9441,
+      "XGBoost": 1.0334,
+      "Neural net (MLP)": 1.0953
     },
     {
       "date": "2025-07-07",
       "Buy & Hold": 1.0302,
-      "RandomForest": 1.1212,
-      "XGBoost": 0.9733,
-      "Neural net (MLP)": 0.8781
+      "RandomForest": 0.9412,
+      "XGBoost": 1.0302,
+      "Neural net (MLP)": 1.0918
     },
     {
       "date": "2025-07-10",
       "Buy & Hold": 1.1073,
-      "RandomForest": 1.2052,
-      "XGBoost": 1.0462,
-      "Neural net (MLP)": 0.9438
+      "RandomForest": 1.0116,
+      "XGBoost": 1.1073,
+      "Neural net (MLP)": 1.1338
     },
     {
       "date": "2025-07-13",
       "Buy & Hold": 1.1397,
-      "RandomForest": 1.2405,
-      "XGBoost": 1.0577,
-      "Neural net (MLP)": 0.9562
+      "RandomForest": 1.0412,
+      "XGBoost": 1.1397,
+      "Neural net (MLP)": 1.1486
     },
     {
       "date": "2025-07-16",
       "Buy & Hold": 1.1313,
-      "RandomForest": 1.2313,
-      "XGBoost": 1.052,
-      "Neural net (MLP)": 0.941
+      "RandomForest": 1.0336,
+      "XGBoost": 1.1313,
+      "Neural net (MLP)": 1.1551
     },
     {
       "date": "2025-07-19",
       "Buy & Hold": 1.1273,
-      "RandomForest": 1.227,
-      "XGBoost": 1.0483,
-      "Neural net (MLP)": 0.9367
+      "RandomForest": 1.0299,
+      "XGBoost": 1.1273,
+      "Neural net (MLP)": 1.1311
     },
     {
       "date": "2025-07-22",
       "Buy & Hold": 1.141,
-      "RandomForest": 1.2418,
-      "XGBoost": 1.061,
-      "Neural net (MLP)": 0.9315
+      "RandomForest": 1.0424,
+      "XGBoost": 1.141,
+      "Neural net (MLP)": 1.1437
     },
     {
       "date": "2025-07-25",
       "Buy & Hold": 1.1214,
-      "RandomForest": 1.2206,
-      "XGBoost": 1.0429,
-      "Neural net (MLP)": 0.9319
+      "RandomForest": 1.0245,
+      "XGBoost": 1.1214,
+      "Neural net (MLP)": 1.1395
     },
     {
       "date": "2025-07-28",
       "Buy & Hold": 1.1277,
-      "RandomForest": 1.2274,
-      "XGBoost": 1.0487,
-      "Neural net (MLP)": 0.9246
+      "RandomForest": 1.0302,
+      "XGBoost": 1.1277,
+      "Neural net (MLP)": 1.135
     },
     {
       "date": "2025-07-31",
       "Buy & Hold": 1.107,
-      "RandomForest": 1.2049,
-      "XGBoost": 1.0295,
-      "Neural net (MLP)": 0.904
+      "RandomForest": 1.0114,
+      "XGBoost": 1.107,
+      "Neural net (MLP)": 1.1106
     },
     {
       "date": "2025-08-03",
       "Buy & Hold": 1.098,
-      "RandomForest": 1.195,
-      "XGBoost": 1.021,
-      "Neural net (MLP)": 0.8844
+      "RandomForest": 1.0031,
+      "XGBoost": 1.098,
+      "Neural net (MLP)": 1.1015
     },
     {
       "date": "2025-08-06",
       "Buy & Hold": 1.0976,
-      "RandomForest": 1.1946,
-      "XGBoost": 1.0206,
-      "Neural net (MLP)": 0.8739
+      "RandomForest": 1.0027,
+      "XGBoost": 1.0976,
+      "Neural net (MLP)": 1.1011
     },
     {
       "date": "2025-08-09",
       "Buy & Hold": 1.1163,
-      "RandomForest": 1.2151,
-      "XGBoost": 1.0381,
-      "Neural net (MLP)": 0.8701
+      "RandomForest": 1.0199,
+      "XGBoost": 1.1163,
+      "Neural net (MLP)": 1.1199
     },
     {
       "date": "2025-08-12",
       "Buy & Hold": 1.1406,
-      "RandomForest": 1.2415,
-      "XGBoost": 1.0607,
-      "Neural net (MLP)": 0.8505
+      "RandomForest": 1.0421,
+      "XGBoost": 1.1406,
+      "Neural net (MLP)": 1.0976
     },
     {
       "date": "2025-08-15",
       "Buy & Hold": 1.1253,
-      "RandomForest": 1.2248,
-      "XGBoost": 1.055,
-      "Neural net (MLP)": 0.8157
+      "RandomForest": 1.0365,
+      "XGBoost": 1.1253,
+      "Neural net (MLP)": 1.0431
     },
     {
       "date": "2025-08-18",
       "Buy & Hold": 1.107,
-      "RandomForest": 1.2049,
-      "XGBoost": 1.0391,
-      "Neural net (MLP)": 0.8035
+      "RandomForest": 1.0209,
+      "XGBoost": 1.107,
+      "Neural net (MLP)": 1.0406
     },
     {
       "date": "2025-08-21",
       "Buy & Hold": 1.0791,
-      "RandomForest": 1.1745,
-      "XGBoost": 1.0283,
-      "Neural net (MLP)": 0.8131
+      "RandomForest": 0.9951,
+      "XGBoost": 1.0791,
+      "Neural net (MLP)": 1.0144
     },
     {
       "date": "2025-08-24",
       "Buy & Hold": 1.0825,
-      "RandomForest": 1.1843,
-      "XGBoost": 1.0588,
-      "Neural net (MLP)": 0.8373
+      "RandomForest": 1.0257,
+      "XGBoost": 1.0825,
+      "Neural net (MLP)": 1.0456
     },
     {
       "date": "2025-08-27",
       "Buy & Hold": 1.0677,
-      "RandomForest": 1.2012,
-      "XGBoost": 1.0751,
-      "Neural net (MLP)": 0.8501
+      "RandomForest": 1.0415,
+      "XGBoost": 1.0677,
+      "Neural net (MLP)": 1.0616
     },
     {
       "date": "2025-08-30",
       "Buy & Hold": 1.0466,
-      "RandomForest": 1.1774,
-      "XGBoost": 1.0538,
-      "Neural net (MLP)": 0.8333
+      "RandomForest": 1.0208,
+      "XGBoost": 1.0466,
+      "Neural net (MLP)": 1.0727
     },
     {
       "date": "2025-09-02",
       "Buy & Hold": 1.0611,
-      "RandomForest": 1.1938,
-      "XGBoost": 1.0684,
-      "Neural net (MLP)": 0.8316
+      "RandomForest": 1.035,
+      "XGBoost": 1.0611,
+      "Neural net (MLP)": 1.0877
     },
     {
       "date": "2025-09-05",
       "Buy & Hold": 1.0537,
-      "RandomForest": 1.1855,
-      "XGBoost": 1.0758,
-      "Neural net (MLP)": 0.8241
+      "RandomForest": 1.034,
+      "XGBoost": 1.0537,
+      "Neural net (MLP)": 1.0875
     },
     {
       "date": "2025-09-08",
       "Buy & Hold": 1.0667,
-      "RandomForest": 1.2045,
-      "XGBoost": 1.0758,
-      "Neural net (MLP)": 0.8334
+      "RandomForest": 1.0457,
+      "XGBoost": 1.0667,
+      "Neural net (MLP)": 1.0885
     },
     {
       "date": "2025-09-11",
       "Buy & Hold": 1.1096,
-      "RandomForest": 1.2281,
-      "XGBoost": 1.0969,
-      "Neural net (MLP)": 0.8669
+      "RandomForest": 1.0877,
+      "XGBoost": 1.1096,
+      "Neural net (MLP)": 1.1258
     },
     {
       "date": "2025-09-14",
       "Buy & Hold": 1.1031,
-      "RandomForest": 1.2197,
-      "XGBoost": 1.0894,
-      "Neural net (MLP)": 0.8618
+      "RandomForest": 1.0813,
+      "XGBoost": 1.1031,
+      "Neural net (MLP)": 1.1224
     },
     {
       "date": "2025-09-17",
       "Buy & Hold": 1.1196,
-      "RandomForest": 1.2379,
-      "XGBoost": 1.1057,
-      "Neural net (MLP)": 0.8755
+      "RandomForest": 1.0975,
+      "XGBoost": 1.1196,
+      "Neural net (MLP)": 1.1381
     },
     {
       "date": "2025-09-20",
       "Buy & Hold": 1.102,
-      "RandomForest": 1.2184,
-      "XGBoost": 1.0883,
-      "Neural net (MLP)": 0.8643
+      "RandomForest": 1.0802,
+      "XGBoost": 1.102,
+      "Neural net (MLP)": 1.1352
     },
     {
       "date": "2025-09-23",
       "Buy & Hold": 1.0836,
-      "RandomForest": 1.1981,
-      "XGBoost": 1.0701,
-      "Neural net (MLP)": 0.8383
+      "RandomForest": 1.0622,
+      "XGBoost": 1.0836,
+      "Neural net (MLP)": 1.1407
     },
     {
       "date": "2025-09-26",
       "Buy & Hold": 1.0485,
-      "RandomForest": 1.1593,
-      "XGBoost": 1.0354,
-      "Neural net (MLP)": 0.8424
+      "RandomForest": 1.0278,
+      "XGBoost": 1.0485,
+      "Neural net (MLP)": 1.1037
     },
     {
       "date": "2025-09-29",
       "Buy & Hold": 1.0813,
-      "RandomForest": 1.1707,
-      "XGBoost": 1.0457,
-      "Neural net (MLP)": 0.8507
+      "RandomForest": 1.0599,
+      "XGBoost": 1.0813,
+      "Neural net (MLP)": 1.1146
     },
     {
       "date": "2025-10-02",
       "Buy & Hold": 1.1497,
-      "RandomForest": 1.2448,
-      "XGBoost": 1.1119,
-      "Neural net (MLP)": 0.8931
+      "RandomForest": 1.127,
+      "XGBoost": 1.1497,
+      "Neural net (MLP)": 1.1701
     },
     {
       "date": "2025-10-05",
       "Buy & Hold": 1.1819,
-      "RandomForest": 1.2796,
-      "XGBoost": 1.143,
-      "Neural net (MLP)": 0.9022
+      "RandomForest": 1.1585,
+      "XGBoost": 1.1819,
+      "Neural net (MLP)": 1.1681
     },
     {
       "date": "2025-10-08",
       "Buy & Hold": 1.1734,
-      "RandomForest": 1.2705,
-      "XGBoost": 1.1348,
-      "Neural net (MLP)": 0.8958
+      "RandomForest": 1.1502,
+      "XGBoost": 1.1734,
+      "Neural net (MLP)": 1.1795
     },
     {
       "date": "2025-10-11",
       "Buy & Hold": 1.0523,
-      "RandomForest": 1.1394,
-      "XGBoost": 1.0361,
-      "Neural net (MLP)": 0.8078
+      "RandomForest": 1.0316,
+      "XGBoost": 1.0523,
+      "Neural net (MLP)": 1.1453
     },
     {
       "date": "2025-10-14",
       "Buy & Hold": 1.078,
-      "RandomForest": 1.1672,
-      "XGBoost": 1.0635,
-      "Neural net (MLP)": 0.83
+      "RandomForest": 1.0567,
+      "XGBoost": 1.078,
+      "Neural net (MLP)": 1.1928
     },
     {
       "date": "2025-10-17",
       "Buy & Hold": 1.0228,
-      "RandomForest": 1.1074,
-      "XGBoost": 1.0416,
-      "Neural net (MLP)": 0.798
+      "RandomForest": 1.0026,
+      "XGBoost": 1.0228,
+      "Neural net (MLP)": 1.1305
     },
     {
       "date": "2025-10-20",
       "Buy & Hold": 1.0534,
-      "RandomForest": 1.1405,
-      "XGBoost": 1.051,
-      "Neural net (MLP)": 0.8219
+      "RandomForest": 1.0326,
+      "XGBoost": 1.0534,
+      "Neural net (MLP)": 1.1505
     },
     {
       "date": "2025-10-23",
       "Buy & Hold": 1.0572,
-      "RandomForest": 1.1447,
-      "XGBoost": 1.0537,
-      "Neural net (MLP)": 0.8249
+      "RandomForest": 1.0544,
+      "XGBoost": 1.0572,
+      "Neural net (MLP)": 1.1546
     },
     {
       "date": "2025-10-26",
       "Buy & Hold": 1.1,
-      "RandomForest": 1.1469,
-      "XGBoost": 1.0526,
-      "Neural net (MLP)": 0.8265
+      "RandomForest": 1.0533,
+      "XGBoost": 1.1,
+      "Neural net (MLP)": 1.1658
     },
     {
       "date": "2025-10-29",
       "Buy & Hold": 1.0573,
-      "RandomForest": 1.1368,
-      "XGBoost": 1.0526,
-      "Neural net (MLP)": 0.8192
+      "RandomForest": 1.0533,
+      "XGBoost": 1.0573,
+      "Neural net (MLP)": 1.1658
     },
     {
       "date": "2025-11-01",
       "Buy & Hold": 1.052,
-      "RandomForest": 1.1301,
-      "XGBoost": 1.0502,
-      "Neural net (MLP)": 0.8115
+      "RandomForest": 1.0509,
+      "XGBoost": 1.052,
+      "Neural net (MLP)": 1.1671
     },
     {
       "date": "2025-11-04",
       "Buy & Hold": 0.9552,
-      "RandomForest": 1.0261,
-      "XGBoost": 0.9794,
-      "Neural net (MLP)": 0.7361
+      "RandomForest": 0.9532,
+      "XGBoost": 0.9552,
+      "Neural net (MLP)": 1.0896
     },
     {
       "date": "2025-11-07",
       "Buy & Hold": 0.9849,
-      "RandomForest": 1.0579,
-      "XGBoost": 1.0098,
-      "Neural net (MLP)": 0.759
+      "RandomForest": 0.9828,
+      "XGBoost": 0.9849,
+      "Neural net (MLP)": 1.1234
     },
     {
       "date": "2025-11-10",
       "Buy & Hold": 1.0223,
-      "RandomForest": 1.0981,
-      "XGBoost": 1.0412,
-      "Neural net (MLP)": 0.7878
+      "RandomForest": 1.0133,
+      "XGBoost": 1.0223,
+      "Neural net (MLP)": 1.1679
     },
     {
       "date": "2025-11-13",
       "Buy & Hold": 0.9452,
-      "RandomForest": 1.0598,
-      "XGBoost": 0.9956,
-      "Neural net (MLP)": 0.7344
+      "RandomForest": 0.979,
+      "XGBoost": 0.9452,
+      "Neural net (MLP)": 1.1257
     },
     {
       "date": "2025-11-16",
       "Buy & Hold": 0.9087,
-      "RandomForest": 1.0189,
-      "XGBoost": 0.9572,
-      "Neural net (MLP)": 0.706
+      "RandomForest": 0.9412,
+      "XGBoost": 0.9087,
+      "Neural net (MLP)": 1.0812
     },
     {
       "date": "2025-11-19",
       "Buy & Hold": 0.8818,
-      "RandomForest": 0.9888,
-      "XGBoost": 0.9289,
-      "Neural net (MLP)": 0.6852
+      "RandomForest": 0.9134,
+      "XGBoost": 0.8818,
+      "Neural net (MLP)": 1.0819
     },
     {
       "date": "2025-11-22",
       "Buy & Hold": 0.8172,
-      "RandomForest": 0.9164,
-      "XGBoost": 0.8844,
-      "Neural net (MLP)": 0.635
+      "RandomForest": 0.8465,
+      "XGBoost": 0.8172,
+      "Neural net (MLP)": 1.0479
     },
     {
       "date": "2025-11-25",
       "Buy & Hold": 0.8371,
-      "RandomForest": 0.9387,
-      "XGBoost": 0.9059,
-      "Neural net (MLP)": 0.6544
+      "RandomForest": 0.867,
+      "XGBoost": 0.8371,
+      "Neural net (MLP)": 1.0479
     },
     {
       "date": "2025-11-28",
       "Buy & Hold": 0.8707,
-      "RandomForest": 0.9719,
-      "XGBoost": 0.9379,
-      "Neural net (MLP)": 0.6768
+      "RandomForest": 0.897,
+      "XGBoost": 0.8707,
+      "Neural net (MLP)": 1.0831
     },
     {
       "date": "2025-12-01",
       "Buy & Hold": 0.8292,
-      "RandomForest": 0.9709,
-      "XGBoost": 0.9296,
-      "Neural net (MLP)": 0.6441
+      "RandomForest": 0.89,
+      "XGBoost": 0.8292,
+      "Neural net (MLP)": 1.0746
     },
     {
       "date": "2025-12-04",
       "Buy & Hold": 0.8841,
-      "RandomForest": 0.9709,
-      "XGBoost": 0.9829,
-      "Neural net (MLP)": 0.6868
+      "RandomForest": 0.8891,
+      "XGBoost": 0.8841,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-07",
       "Buy & Hold": 0.868,
-      "RandomForest": 0.9709,
-      "XGBoost": 0.9818,
-      "Neural net (MLP)": 0.6742
+      "RandomForest": 0.8891,
+      "XGBoost": 0.868,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-10",
       "Buy & Hold": 0.8688,
-      "RandomForest": 0.9709,
-      "XGBoost": 0.9996,
-      "Neural net (MLP)": 0.6749
+      "RandomForest": 0.8891,
+      "XGBoost": 0.8688,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-13",
       "Buy & Hold": 0.8647,
-      "RandomForest": 0.9709,
-      "XGBoost": 0.9997,
-      "Neural net (MLP)": 0.6717
+      "RandomForest": 0.8891,
+      "XGBoost": 0.8647,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-16",
       "Buy & Hold": 0.8391,
-      "RandomForest": 0.958,
-      "XGBoost": 0.9863,
-      "Neural net (MLP)": 0.6518
+      "RandomForest": 0.8781,
+      "XGBoost": 0.8391,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-19",
       "Buy & Hold": 0.8426,
-      "RandomForest": 0.962,
-      "XGBoost": 0.9905,
-      "Neural net (MLP)": 0.6335
+      "RandomForest": 0.8818,
+      "XGBoost": 0.8426,
+      "Neural net (MLP)": 1.0735
     },
     {
       "date": "2025-12-22",
       "Buy & Hold": 0.8472,
-      "RandomForest": 0.9549,
-      "XGBoost": 0.9895,
-      "Neural net (MLP)": 0.6363
+      "RandomForest": 0.881,
+      "XGBoost": 0.8472,
+      "Neural net (MLP)": 1.0667
     },
     {
       "date": "2025-12-25",
       "Buy & Hold": 0.8352,
-      "RandomForest": 0.954,
-      "XGBoost": 0.9895,
-      "Neural net (MLP)": 0.629
+      "RandomForest": 0.881,
+      "XGBoost": 0.8352,
+      "Neural net (MLP)": 1.0656
     },
     {
       "date": "2025-12-28",
       "Buy & Hold": 0.8417,
-      "RandomForest": 0.9604,
-      "XGBoost": 0.9895,
-      "Neural net (MLP)": 0.6279
+      "RandomForest": 0.8869,
+      "XGBoost": 0.8417,
+      "Neural net (MLP)": 1.0691
     },
     {
       "date": "2025-12-31",
       "Buy & Hold": 0.8404,
-      "RandomForest": 0.9589,
-      "XGBoost": 0.9953,
-      "Neural net (MLP)": 0.6213
+      "RandomForest": 0.8855,
+      "XGBoost": 0.8404,
+      "Neural net (MLP)": 1.0837
     },
     {
       "date": "2026-01-03",
       "Buy & Hold": 0.8712,
-      "RandomForest": 0.9942,
-      "XGBoost": 1.0319,
-      "Neural net (MLP)": 0.6364
+      "RandomForest": 0.9181,
+      "XGBoost": 0.8712,
+      "Neural net (MLP)": 1.1224
     },
     {
       "date": "2026-01-06",
       "Buy & Hold": 0.8849,
-      "RandomForest": 1.0097,
-      "XGBoost": 1.0252,
-      "Neural net (MLP)": 0.6457
+      "RandomForest": 0.9325,
+      "XGBoost": 0.8849,
+      "Neural net (MLP)": 1.1399
     },
     {
       "date": "2026-01-09",
       "Buy & Hold": 0.8668,
-      "RandomForest": 0.9891,
-      "XGBoost": 1.0043,
-      "Neural net (MLP)": 0.633
+      "RandomForest": 0.9134,
+      "XGBoost": 0.8668,
+      "Neural net (MLP)": 1.1167
     },
     {
       "date": "2026-01-12",
       "Buy & Hold": 0.8739,
-      "RandomForest": 0.9972,
-      "XGBoost": 1.0125,
-      "Neural net (MLP)": 0.6382
+      "RandomForest": 0.9209,
+      "XGBoost": 0.8739,
+      "Neural net (MLP)": 1.1243
     },
     {
       "date": "2026-01-15",
       "Buy & Hold": 0.9137,
-      "RandomForest": 1.0426,
-      "XGBoost": 1.0586,
-      "Neural net (MLP)": 0.6372
+      "RandomForest": 0.9629,
+      "XGBoost": 0.9137,
+      "Neural net (MLP)": 1.1755
     },
     {
       "date": "2026-01-18",
       "Buy & Hold": 0.8853,
-      "RandomForest": 1.0102,
-      "XGBoost": 1.0518,
-      "Neural net (MLP)": 0.6195
+      "RandomForest": 0.9329,
+      "XGBoost": 0.8853,
+      "Neural net (MLP)": 1.168
     },
     {
       "date": "2026-01-21",
       "Buy & Hold": 0.8622,
-      "RandomForest": 0.9838,
-      "XGBoost": 1.0233,
-      "Neural net (MLP)": 0.6034
+      "RandomForest": 0.9085,
+      "XGBoost": 0.8622,
+      "Neural net (MLP)": 1.1364
     },
     {
       "date": "2026-01-24",
       "Buy & Hold": 0.8529,
-      "RandomForest": 0.9732,
-      "XGBoost": 1.0123,
-      "Neural net (MLP)": 0.5995
+      "RandomForest": 0.8988,
+      "XGBoost": 0.8529,
+      "Neural net (MLP)": 1.1241
     },
     {
       "date": "2026-01-27",
       "Buy & Hold": 0.8541,
-      "RandomForest": 0.9746,
-      "XGBoost": 1.0137,
-      "Neural net (MLP)": 0.6038
+      "RandomForest": 0.9,
+      "XGBoost": 0.8541,
+      "Neural net (MLP)": 1.1257
     },
     {
       "date": "2026-01-30",
       "Buy & Hold": 0.8034,
-      "RandomForest": 0.9197,
-      "XGBoost": 0.9566,
-      "Neural net (MLP)": 0.5703
+      "RandomForest": 0.8493,
+      "XGBoost": 0.8034,
+      "Neural net (MLP)": 1.0589
     },
     {
       "date": "2026-02-02",
       "Buy & Hold": 0.755,
-      "RandomForest": 0.8643,
-      "XGBoost": 0.899,
-      "Neural net (MLP)": 0.536
+      "RandomForest": 0.7981,
+      "XGBoost": 0.755,
+      "Neural net (MLP)": 0.9951
     },
     {
       "date": "2026-02-05",
       "Buy & Hold": 0.6239,
-      "RandomForest": 0.7143,
-      "XGBoost": 0.7828,
-      "Neural net (MLP)": 0.4667
+      "RandomForest": 0.6596,
+      "XGBoost": 0.6239,
+      "Neural net (MLP)": 0.8224
     },
     {
       "date": "2026-02-08",
       "Buy & Hold": 0.673,
-      "RandomForest": 0.7705,
-      "XGBoost": 0.8444,
-      "Neural net (MLP)": 0.5034
+      "RandomForest": 0.7115,
+      "XGBoost": 0.673,
+      "Neural net (MLP)": 0.8871
     },
     {
       "date": "2026-02-11",
       "Buy & Hold": 0.6468,
-      "RandomForest": 0.7404,
-      "XGBoost": 0.829,
-      "Neural net (MLP)": 0.4914
+      "RandomForest": 0.6838,
+      "XGBoost": 0.6468,
+      "Neural net (MLP)": 0.8525
     },
     {
       "date": "2026-02-14",
       "Buy & Hold": 0.666,
-      "RandomForest": 0.7624,
-      "XGBoost": 0.8527,
-      "Neural net (MLP)": 0.5009
+      "RandomForest": 0.704,
+      "XGBoost": 0.666,
+      "Neural net (MLP)": 0.836
     },
     {
       "date": "2026-02-17",
       "Buy & Hold": 0.6416,
-      "RandomForest": 0.7345,
-      "XGBoost": 0.8406,
-      "Neural net (MLP)": 0.4927
+      "RandomForest": 0.694,
+      "XGBoost": 0.6416,
+      "Neural net (MLP)": 0.8224
     },
     {
       "date": "2026-02-20",
       "Buy & Hold": 0.6503,
-      "RandomForest": 0.7444,
-      "XGBoost": 0.8511,
-      "Neural net (MLP)": 0.4946
+      "RandomForest": 0.7027,
+      "XGBoost": 0.6503,
+      "Neural net (MLP)": 0.8224
     },
     {
       "date": "2026-02-23",
       "Buy & Hold": 0.6151,
-      "RandomForest": 0.7012,
-      "XGBoost": 0.805,
-      "Neural net (MLP)": 0.4663
+      "RandomForest": 0.7,
+      "XGBoost": 0.6151,
+      "Neural net (MLP)": 0.8201
     },
     {
       "date": "2026-02-26",
       "Buy & Hold": 0.6429,
-      "RandomForest": 0.7175,
-      "XGBoost": 0.8549,
-      "Neural net (MLP)": 0.4952
+      "RandomForest": 0.7434,
+      "XGBoost": 0.6429,
+      "Neural net (MLP)": 0.8392
     },
     {
       "date": "2026-03-01",
       "Buy & Hold": 0.6371,
-      "RandomForest": 0.7159,
-      "XGBoost": 0.8529,
-      "Neural net (MLP)": 0.4793
+      "RandomForest": 0.7434,
+      "XGBoost": 0.6371,
+      "Neural net (MLP)": 0.8203
     },
     {
       "date": "2026-03-04",
       "Buy & Hold": 0.6942,
-      "RandomForest": 0.7159,
-      "XGBoost": 0.8529,
-      "Neural net (MLP)": 0.5038
+      "RandomForest": 0.7434,
+      "XGBoost": 0.6942,
+      "Neural net (MLP)": 0.8203
     },
     {
       "date": "2026-03-07",
       "Buy & Hold": 0.6439,
-      "RandomForest": 0.7003,
-      "XGBoost": 0.8529,
-      "Neural net (MLP)": 0.4673
+      "RandomForest": 0.7434,
+      "XGBoost": 0.6439,
+      "Neural net (MLP)": 0.8203
     },
     {
       "date": "2026-03-10",
       "Buy & Hold": 0.669,
-      "RandomForest": 0.7003,
-      "XGBoost": 0.8831,
-      "Neural net (MLP)": 0.4856
+      "RandomForest": 0.7434,
+      "XGBoost": 0.669,
+      "Neural net (MLP)": 0.8316
     },
     {
       "date": "2026-03-13",
       "Buy & Hold": 0.6778,
-      "RandomForest": 0.7003,
-      "XGBoost": 0.8831,
-      "Neural net (MLP)": 0.4793
+      "RandomForest": 0.7434,
+      "XGBoost": 0.6778,
+      "Neural net (MLP)": 0.8308
     },
     {
       "date": "2026-03-16",
       "Buy & Hold": 0.7068,
-      "RandomForest": 0.7108,
-      "XGBoost": 0.8963,
-      "Neural net (MLP)": 0.4998
+      "RandomForest": 0.7545,
+      "XGBoost": 0.7068,
+      "Neural net (MLP)": 0.851
     },
     {
       "date": "2026-03-19",
       "Buy & Hold": 0.6743,
-      "RandomForest": 0.6845,
-      "XGBoost": 0.8954,
-      "Neural net (MLP)": 0.4768
+      "RandomForest": 0.7537,
+      "XGBoost": 0.6743,
+      "Neural net (MLP)": 0.8111
     },
     {
       "date": "2026-03-22",
       "Buy & Hold": 0.6781,
-      "RandomForest": 0.6876,
-      "XGBoost": 0.9118,
-      "Neural net (MLP)": 0.4795
+      "RandomForest": 0.7675,
+      "XGBoost": 0.6781,
+      "Neural net (MLP)": 0.7919
     },
     {
       "date": "2026-03-25",
       "Buy & Hold": 0.6581,
-      "RandomForest": 0.6674,
-      "XGBoost": 0.8849,
-      "Neural net (MLP)": 0.4594
+      "RandomForest": 0.7713,
+      "XGBoost": 0.6581,
+      "Neural net (MLP)": 0.7679
     },
     {
       "date": "2026-03-28",
       "Buy & Hold": 0.6313,
-      "RandomForest": 0.6401,
-      "XGBoost": 0.8527,
-      "Neural net (MLP)": 0.4406
+      "RandomForest": 0.7425,
+      "XGBoost": 0.6313,
+      "Neural net (MLP)": 0.7399
     },
     {
       "date": "2026-03-31",
       "Buy & Hold": 0.6514,
-      "RandomForest": 0.6605,
-      "XGBoost": 0.879,
-      "Neural net (MLP)": 0.4454
+      "RandomForest": 0.7665,
+      "XGBoost": 0.6514,
+      "Neural net (MLP)": 0.7627
     },
     {
       "date": "2026-04-03",
       "Buy & Hold": 0.6436,
-      "RandomForest": 0.6592,
-      "XGBoost": 0.8771,
-      "Neural net (MLP)": 0.437
+      "RandomForest": 0.7657,
+      "XGBoost": 0.6436,
+      "Neural net (MLP)": 0.7536
     },
     {
       "date": "2026-04-06",
       "Buy & Hold": 0.6878,
-      "RandomForest": 0.6592,
-      "XGBoost": 0.8771,
-      "Neural net (MLP)": 0.4549
+      "RandomForest": 0.7657,
+      "XGBoost": 0.6878,
+      "Neural net (MLP)": 0.7836
     },
     {
       "date": "2026-04-09",
       "Buy & Hold": 0.6978,
-      "RandomForest": 0.66,
-      "XGBoost": 0.865,
-      "Neural net (MLP)": 0.4536
+      "RandomForest": 0.7667,
+      "XGBoost": 0.6978,
+      "Neural net (MLP)": 0.7853
     },
     {
       "date": "2026-04-12",
       "Buy & Hold": 0.7117,
-      "RandomForest": 0.6393,
-      "XGBoost": 0.8642,
-      "Neural net (MLP)": 0.4762
+      "RandomForest": 0.7426,
+      "XGBoost": 0.7117,
+      "Neural net (MLP)": 0.7854
     },
     {
       "date": "2026-04-15",
       "Buy & Hold": 0.7187,
-      "RandomForest": 0.6475,
-      "XGBoost": 0.8753,
-      "Neural net (MLP)": 0.4783
+      "RandomForest": 0.7521,
+      "XGBoost": 0.7187,
+      "Neural net (MLP)": 0.7924
     },
     {
       "date": "2026-04-18",
       "Buy & Hold": 0.7058,
-      "RandomForest": 0.6514,
-      "XGBoost": 0.8744,
-      "Neural net (MLP)": 0.4692
+      "RandomForest": 0.7567,
+      "XGBoost": 0.7058,
+      "Neural net (MLP)": 0.7759
     },
     {
       "date": "2026-04-21",
       "Buy & Hold": 0.7476,
-      "RandomForest": 0.6894,
-      "XGBoost": 0.9253,
-      "Neural net (MLP)": 0.497
+      "RandomForest": 0.8008,
+      "XGBoost": 0.7476,
+      "Neural net (MLP)": 0.799
     },
     {
       "date": "2026-04-24",
       "Buy & Hold": 0.7423,
-      "RandomForest": 0.6824,
-      "XGBoost": 0.916,
-      "Neural net (MLP)": 0.4935
+      "RandomForest": 0.7951,
+      "XGBoost": 0.7423,
+      "Neural net (MLP)": 0.7906
     },
     {
       "date": "2026-04-27",
       "Buy & Hold": 0.7301,
-      "RandomForest": 0.6712,
-      "XGBoost": 0.902,
-      "Neural net (MLP)": 0.478
+      "RandomForest": 0.782,
+      "XGBoost": 0.7301,
+      "Neural net (MLP)": 0.7793
     },
     {
       "date": "2026-04-30",
       "Buy & Hold": 0.7481,
-      "RandomForest": 0.6878,
-      "XGBoost": 0.9243,
-      "Neural net (MLP)": 0.4801
+      "RandomForest": 0.8013,
+      "XGBoost": 0.7481,
+      "Neural net (MLP)": 0.7986
     },
     {
       "date": "2026-05-03",
       "Buy & Hold": 0.7637,
-      "RandomForest": 0.7021,
-      "XGBoost": 0.9436,
-      "Neural net (MLP)": 0.482
+      "RandomForest": 0.818,
+      "XGBoost": 0.7637,
+      "Neural net (MLP)": 0.795
     },
     {
       "date": "2026-05-06",
       "Buy & Hold": 0.7651,
-      "RandomForest": 0.7034,
-      "XGBoost": 0.9614,
-      "Neural net (MLP)": 0.4824
+      "RandomForest": 0.8195,
+      "XGBoost": 0.7651,
+      "Neural net (MLP)": 0.7957
     },
     {
       "date": "2026-05-09",
       "Buy & Hold": 0.7862,
-      "RandomForest": 0.7227,
-      "XGBoost": 0.9869,
-      "Neural net (MLP)": 0.4905
+      "RandomForest": 0.8421,
+      "XGBoost": 0.7862,
+      "Neural net (MLP)": 0.8111
     },
     {
       "date": "2026-05-12",
       "Buy & Hold": 0.7585,
-      "RandomForest": 0.6973,
-      "XGBoost": 0.9521,
-      "Neural net (MLP)": 0.4799
+      "RandomForest": 0.8124,
+      "XGBoost": 0.7585,
+      "Neural net (MLP)": 0.7854
     },
     {
       "date": "2026-05-15",
       "Buy & Hold": 0.7473,
-      "RandomForest": 0.687,
-      "XGBoost": 0.9381,
-      "Neural net (MLP)": 0.4673
+      "RandomForest": 0.8005,
+      "XGBoost": 0.7473,
+      "Neural net (MLP)": 0.7738
     },
     {
       "date": "2026-05-18",
       "Buy & Hold": 0.7348,
-      "RandomForest": 0.6781,
-      "XGBoost": 0.9223,
-      "Neural net (MLP)": 0.4589
+      "RandomForest": 0.787,
+      "XGBoost": 0.7348,
+      "Neural net (MLP)": 0.766
     },
     {
       "date": "2026-05-21",
       "Buy & Hold": 0.7224,
-      "RandomForest": 0.6667,
-      "XGBoost": 0.9068,
-      "Neural net (MLP)": 0.4585
+      "RandomForest": 0.7737,
+      "XGBoost": 0.7224,
+      "Neural net (MLP)": 0.7531
     },
     {
       "date": "2026-05-24",
       "Buy & Hold": 0.7394,
-      "RandomForest": 0.6795,
-      "XGBoost": 0.9242,
-      "Neural net (MLP)": 0.4649
+      "RandomForest": 0.792,
+      "XGBoost": 0.7394,
+      "Neural net (MLP)": 0.7676
     },
     {
       "date": "2026-05-27",
       "Buy & Hold": 0.704,
-      "RandomForest": 0.6463,
-      "XGBoost": 0.879,
-      "Neural net (MLP)": 0.4593
+      "RandomForest": 0.7541,
+      "XGBoost": 0.704,
+      "Neural net (MLP)": 0.7301
     },
     {
       "date": "2026-05-30",
       "Buy & Hold": 0.7046,
-      "RandomForest": 0.6468,
-      "XGBoost": 0.8797,
-      "Neural net (MLP)": 0.4596
+      "RandomForest": 0.7546,
+      "XGBoost": 0.7046,
+      "Neural net (MLP)": 0.7306
     },
     {
       "date": "2026-06-02",
       "Buy & Hold": 0.6356,
-      "RandomForest": 0.5835,
-      "XGBoost": 0.7936,
-      "Neural net (MLP)": 0.4543
+      "RandomForest": 0.6808,
+      "XGBoost": 0.6356,
+      "Neural net (MLP)": 0.6591
     },
     {
       "date": "2026-06-05",
       "Buy & Hold": 0.585,
-      "RandomForest": 0.537,
-      "XGBoost": 0.7304,
-      "Neural net (MLP)": 0.4182
+      "RandomForest": 0.6266,
+      "XGBoost": 0.585,
+      "Neural net (MLP)": 0.6067
     },
     {
       "date": "2026-06-08",
       "Buy & Hold": 0.5903,
-      "RandomForest": 0.5419,
-      "XGBoost": 0.7371,
-      "Neural net (MLP)": 0.422
+      "RandomForest": 0.6323,
+      "XGBoost": 0.5903,
+      "Neural net (MLP)": 0.6165
     },
     {
       "date": "2026-06-11",
       "Buy & Hold": 0.608,
-      "RandomForest": 0.5582,
-      "XGBoost": 0.759,
-      "Neural net (MLP)": 0.4346
+      "RandomForest": 0.6512,
+      "XGBoost": 0.608,
+      "Neural net (MLP)": 0.6148
     },
     {
       "date": "2026-06-14",
       "Buy & Hold": 0.6343,
-      "RandomForest": 0.5576,
-      "XGBoost": 0.7679,
-      "Neural net (MLP)": 0.4342
+      "RandomForest": 0.6506,
+      "XGBoost": 0.6343,
+      "Neural net (MLP)": 0.6227
     }
   ],
   "backtest_metrics": [
@@ -6271,28 +6247,28 @@
     },
     {
       "strategy": "RandomForest",
-      "total_return": -0.4424,
-      "sharpe": -1.019,
-      "max_drawdown": -0.586,
-      "trades": 110
+      "total_return": -0.3494,
+      "sharpe": -0.757,
+      "max_drawdown": -0.4665,
+      "trades": 100
     },
     {
       "strategy": "XGBoost",
-      "total_return": -0.2321,
-      "sharpe": -0.492,
-      "max_drawdown": -0.3696,
-      "trades": 162
+      "total_return": -0.3665,
+      "sharpe": -0.699,
+      "max_drawdown": -0.5117,
+      "trades": 1
     },
     {
       "strategy": "Neural net (MLP)",
-      "total_return": -0.5658,
-      "sharpe": -1.48,
-      "max_drawdown": -0.6173,
-      "trades": 236
+      "total_return": -0.3773,
+      "sharpe": -0.908,
+      "max_drawdown": -0.4954,
+      "trades": 202
     }
   ],
   "beat_buyhold": [
-    "XGBoost"
+    "RandomForest"
   ],
-  "report": "# Bitcoin Trend Prediction \u2014 Final Report\n\n## Headline\nOn out-of-sample data (2024-12-15 to 2026-06-15), next-day direction is\n**near-random**, as the statistics predicted. Best classifier: 50.7%\n(XGBoost) versus a ~50% coin flip. No model reached an AUC meaningfully above 0.5.\n\n## Do the model differences matter?\n- McNemar and Diebold-Mariano tests show the models are largely **not statistically\n  distinguishable** from each other on this data.\n- The neural network (Neural net (MLP)) did **not** beat the simple classical models \u2014 more\n  complexity bought no edge on a near-random target.\n\n## Does it make money?\n- After 0.1% costs, most model strategies **underperform buy-and-hold**; high-churn\n  long/short variants lose the most.\n- Any single-window outperformance is **suggestive, not proven** \u2014 it needs multi-window\n  walk-forward validation before being believed.\n\n## Honest conclusion\nThe contribution is *correct methodology*, not a magic predictor: leakage-aware chronological\nsplits, baselines the models must beat, a fair neural benchmark, calibrated probabilities,\nformal model-comparison tests, and a cost-aware backtest. Markets are hard, simple beats\ncomplex, and accuracy is not profit.\n\n## Most promising next lever\nNot a bigger network \u2014 the on-chain features (notebook 05, via fetch_onchain.py) are the\ndata dimension most likely to add a real, defensible edge.\n"
+  "report": "# Bitcoin Trend Prediction \u2014 Final Report\n\n## Headline\nOn out-of-sample data (2024-12-15 to 2026-06-15), next-day direction is\n**near-random**, as the statistics predicted. Best classifier: 50.7%\n(RandomForest) versus a ~50% coin flip. No model reached an AUC meaningfully above 0.5.\n\n## Do the model differences matter?\n- McNemar and Diebold-Mariano tests show the models are largely **not statistically\n  distinguishable** from each other on this data.\n- The neural network (Neural net (MLP)) did **not** beat the simple classical models \u2014 more\n  complexity bought no edge on a near-random target.\n\n## Does it make money?\n- After 0.1% costs, most model strategies **underperform buy-and-hold**; high-churn\n  long/short variants lose the most.\n- Any single-window outperformance is **suggestive, not proven** \u2014 it needs multi-window\n  walk-forward validation before being believed.\n\n## Honest conclusion\nThe contribution is *correct methodology*, not a magic predictor: leakage-aware chronological\nsplits, baselines the models must beat, a fair neural benchmark, calibrated probabilities,\nformal model-comparison tests, and a cost-aware backtest. Markets are hard, simple beats\ncomplex, and accuracy is not profit.\n\n## Most promising next lever\nNot a bigger network \u2014 the on-chain features (notebook 05, via fetch_onchain.py) are the\ndata dimension most likely to add a real, defensible edge.\n"
 }
